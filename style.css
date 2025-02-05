@@ -7,7 +7,7 @@
 
 	/* font size */
 	--base-size: 16px;
-	--gutter-size:calc(4*var(--base-size));
+	--gutter-size:calc(2*var(--base-size));
 	
 	--color--background: #E5E5E5;
 	--color--black: black;
@@ -20,10 +20,50 @@
 @media (min-width:600px){
 	:root{
 		--base-size: 20px;
-		--gutter-size: calc(5*var(--base-size));
+		--gutter-size: calc(4*var(--base-size));
 	}
 }
 
 html{
 	scroll-behavior: smooth;
+}
+
+body{
+	background-color: var(--color--background);
+}
+
+header{
+	margin-inline: var(--gutter-size);
+	margin-block: var(--gutter-size);
+}
+
+h1{
+	font-family: var(--heading-font);
+	font-size: calc(2.9*var(--base-size));
+	padding-block: var(--gutter-size);
+}
+
+p{
+	font-family: var(--context-font);
+	font-size: var(--base-size);
+	line-height: 120%;
+}
+
+
+/* desktop */
+/* desktop */
+/* desktop */
+
+@media (min-width:600px){
+
+	header{
+		margin-inline: calc(2*var(--gutter-size));
+		margin-block: var(--gutter-size);
+	}
+
+	h1{
+		font-size: calc(5*var(--base-size));
+		padding-block: calc(0.5*var(--gutter-size));
+	}
+
 }
