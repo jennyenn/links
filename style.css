@@ -20,7 +20,7 @@
 @media (min-width:600px){
 	:root{
 		--base-size: 20px;
-		--gutter-size: calc(4*var(--base-size));
+		--gutter-size: calc(5*var(--base-size));
 	}
 }
 
@@ -49,6 +49,12 @@ p{
 	line-height: 120%;
 }
 
+img {
+	display: block;
+	width: 70%;
+	padding-inline: calc(2*var(--gutter-size));
+}
+
 
 /* desktop */
 /* desktop */
@@ -58,12 +64,11 @@ p{
 
 	header{
 		margin-inline: calc(2*var(--gutter-size));
-		margin-block: var(--gutter-size);
 	}
 
 	h1{
 		font-size: calc(5*var(--base-size));
-		padding-block: calc(0.5*var(--gutter-size));
+		padding-block: calc(0.2*var(--gutter-size));
 	}
 
 }
