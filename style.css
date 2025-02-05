@@ -34,6 +34,7 @@ body{
 	margin-block: var(--gutter-size);
 }
 
+
 h1{
 	font-family: var(--heading-font);
 	font-size: calc(2.9*var(--base-size));
@@ -46,29 +47,31 @@ p{
 	line-height: 120%;
 }
 
+section{
+	margin-top: var(--gutter-size);
+}
+
 img {
 	object-fit: contain;
 	display: block;
 	width: 100%;
-	padding-block: var(--gutter-size);
 }
 
 video{
 	object-fit: contain;
 	/* aspect-ratio: 4/3; */
 	width: 100%;
-	padding-block: var(--gutter-size);
 }
 
-
 .quote{
-	background-color: #015A4F;
+	background-color: var(--color--darkgreen);
 	color: white;
 	padding: var(--gutter-size);
 }
 
 .quote p{
 	font-size: calc(1.2*var(--base-size));
+	text-align: center;
 }
 
 
@@ -90,8 +93,15 @@ video{
 	}
 
 	img{
-		width: 70%;
-		padding-block: var(--gutter-size);
+		width: 40%;
 	}	
+
+	section:nth-of-type(3)  img{
+		margin-left: auto;
+	}
+
+	.quote{
+		margin-block: var(--gutter-size);
+	}
 }
 
