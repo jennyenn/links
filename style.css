@@ -30,10 +30,15 @@ html{
 
 body{
 	background-color: var(--color--background);
-	margin-inline: var(--gutter-size);
-	margin-block: var(--gutter-size);
 }
 
+header{
+	margin: var(--gutter-size);
+}
+
+main{
+	margin-inline: var(--gutter-size);
+}
 
 h1{
 	font-family: var(--heading-font);
@@ -65,6 +70,10 @@ video{
 	width: 100%;
 }
 
+footer{
+	margin-top: var(--gutter-size);
+}
+
 .quote{
 	background-color: var(--color--darkgreen);
 	color: white;
@@ -75,6 +84,22 @@ video{
 	font-size: calc(1.2*var(--base-size));
 	text-align: center;
 }
+
+.marquee{
+	margin-top: 0px;
+	background-color: var(--color--fluorescentgreen);
+	padding-block: calc(0.5*var(--base-size));
+}
+
+.dot{
+	color: var(--color--purple);
+}
+
+.marquee p{
+	color: black;
+	font-size: calc(0.9*var(--base-size));
+}
+
 
 
 /* figcaption {
@@ -89,13 +114,17 @@ video{
 
 @media (min-width:600px){
 
-	body{
+	main{
 		margin: calc(1.5*var(--gutter-size));
-		margin-top: var(--gutter-size);
+		margin-block: calc(0.2*var(--gutter-size));
+	}
+
+	header{
+		margin-inline: calc(1.5*var(--gutter-size));
 	}
 
 	h1{
-		font-size: calc(6*var(--base-size));
+		font-size: calc(6.3*var(--base-size));
 		padding-block: calc(0.2*var(--gutter-size));
 	}
 
@@ -103,12 +132,16 @@ video{
 		width: 40%;
 	}	
 
+	section:nth-of-type(3) {
+		margin-top: 0px;
+	}
+
 	section:nth-of-type(3)  img{
 		margin-left: auto;
 	}
 
 	video:hover{
-		
+
 		/* how to set image as cursor upon hover: https://dev.to/enjeck/set-image-as-cursor-upon-hover-3nbh */
 		cursor: url(cursor.png), auto;
 	}
