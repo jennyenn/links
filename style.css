@@ -54,6 +54,19 @@ p{
 	font-weight: 200;
 }
 
+aside{
+	padding-top: var(--gutter-size);
+}
+
+a{
+	text-decoration: underline;
+	color: var(--color--darkgreen);
+}
+
+a:hover{
+	color: var(--color--purple);
+}
+
 section{
 	margin-top: var(--gutter-size);
 }
@@ -121,6 +134,7 @@ footer{
 
 	header{
 		margin-inline: calc(1.5*var(--gutter-size));
+		margin-block: calc(0.5*var(--gutter-size));
 	}
 
 	h1{
@@ -128,11 +142,15 @@ footer{
 		padding-block: calc(0.2*var(--gutter-size));
 	}
 
+	aside{
+		padding-top: calc(0.5*var(--gutter-size));
+	}
+
 	img{
 		width: 40%;
 		
 		/* how to set image as cursor upon hover: https://dev.to/enjeck/set-image-as-cursor-upon-hover-3nbh */
-		cursor: url(cursor.png), auto;
+		cursor: url(images/cursor.png), auto;
 	}	
 
 	section:nth-of-type(3) {
@@ -144,7 +162,7 @@ footer{
 	}
 
 	video:hover{
-		cursor: url(cursor2.png), auto;
+		cursor: url(images/cursor2.png), auto;
 	}
 
 	.quote{
