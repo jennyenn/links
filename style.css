@@ -39,12 +39,14 @@ h1{
 	font-family: var(--heading-font);
 	font-size: calc(2.9*var(--base-size));
 	padding-block: var(--gutter-size);
+	text-align: center;
 }
 
 p{
 	font-family: var(--context-font);
 	font-size: var(--base-size);
 	line-height: 120%;
+	font-weight: 200;
 }
 
 section{
@@ -87,8 +89,13 @@ video{
 
 @media (min-width:600px){
 
+	body{
+		margin: calc(1.5*var(--gutter-size));
+		margin-top: var(--gutter-size);
+	}
+
 	h1{
-		font-size: calc(5*var(--base-size));
+		font-size: calc(6*var(--base-size));
 		padding-block: calc(0.2*var(--gutter-size));
 	}
 
@@ -98,6 +105,12 @@ video{
 
 	section:nth-of-type(3)  img{
 		margin-left: auto;
+	}
+
+	video:hover{
+		
+		/* how to set image as cursor upon hover: https://dev.to/enjeck/set-image-as-cursor-upon-hover-3nbh */
+		cursor: url(cursor.png), auto;
 	}
 
 	.quote{
