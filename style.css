@@ -19,7 +19,7 @@
 
 @media (min-width:600px){
 	:root{
-		--base-size: 20px;
+		--base-size: 18px;
 		--gutter-size: calc(5*var(--base-size));
 	}
 }
