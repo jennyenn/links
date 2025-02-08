@@ -15,13 +15,13 @@ let placeChannelInfo = (data) => {
 	// Target some elements in your HTML:
 	let channelTitle = document.querySelector('#channel-title')
 	let channelDescription = document.querySelector('#channel-description')
-	// let channelCount = document.querySelector('#channel-count')
+	let channelCount = document.querySelector('#channel-count')
 	let channelLink = document.querySelector('#channel-link')
 
 	// Then set their content/attributes to our data:
 	channelTitle.innerHTML = data.title
 	channelDescription.innerHTML = window.markdownit().render(data.metadata.description) // Converts Markdown → HTML
-	// channelCount.innerHTML = data.length
+	channelCount.innerHTML = data.length
 	channelLink.href = `https://www.are.na/channel/${channelSlug}`
 }
 
@@ -40,11 +40,13 @@ let renderBlock = (block) => {
 					<source media="(max-width: 640px)" srcset="${ block.image.large.url }">
 					<img src="${ block.image.original.url }">
 				</picture>
-				<h3>${ block.title }</h3>
-				${ block.description_html }
-				<p><a href="${ block.source.url }">See the original ↗</a></p>
 			</li>
 			`
+			// put these in the hover part		
+			// <h3>${ block.title }</h3>
+			// ${ block.description_html }
+			// <p><a href="${ block.source.url }">See the original ↗</a></p> 
+
 		channelBlocks.insertAdjacentHTML('beforeend', linkItem)
 	}
 
@@ -54,8 +56,7 @@ let renderBlock = (block) => {
 		let imageItem = 
 		
 		`
-
-		  <img src="${block.image.original.url}">
+			<img src="${block.image.original.url}">
 		`;
 
 		channelBlocks.insertAdjacentHTML('beforeend', imageItem);;
@@ -66,6 +67,15 @@ let renderBlock = (block) => {
 	// Text!
 	else if (block.class == 'Text') {
 		// …up to you!
+		let textItem = 
+		
+		`
+			<blockquote>
+				<p>${block.content}</p>
+			</blockquote>
+		`;
+
+		channelBlocks.insertAdjacentHTML('beforeend', textItem);;
 
 	}
 
@@ -79,7 +89,6 @@ let renderBlock = (block) => {
 			let videoItem =
 				`
 				<li>
-					<p><em>Video</em></p>
 					<video controls src="${ block.attachment.url }"></video>
 				</li>
 				`
@@ -99,7 +108,6 @@ let renderBlock = (block) => {
 			let audioItem =
 				`
 				<li>
-					<p><em>Audio</em></p>
 					<audio controls src="${ block.attachment.url }"></video>
 				</li>
 				`
@@ -118,7 +126,6 @@ let renderBlock = (block) => {
 			let linkedVideoItem =
 				`
 				<li>
-					<p><em>Linked Video</em></p>
 					${ block.embed.html }
 				</li>
 				`
