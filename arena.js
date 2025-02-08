@@ -36,9 +36,9 @@ let renderBlock = (block) => {
 			`
 			<li>
 				<picture>
+					<img src="${ block.image.original.url }">
 					<source media="(max-width: 428px)" srcset="${ block.image.thumb.url }">
 					<source media="(max-width: 640px)" srcset="${ block.image.large.url }">
-					<img src="${ block.image.original.url }">
 				</picture>
 			</li>
 			`
@@ -87,7 +87,9 @@ let renderBlock = (block) => {
 		if (attachment.includes('video')) {
 			// …still up to you, but we’ll give you the `video` element:
 			let videoItem =
+				
 				`
+				<img src="${ block.image.original.url }">
 				<li>
 					<video controls src="${ block.attachment.url }"></video>
 				</li>
