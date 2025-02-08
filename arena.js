@@ -35,7 +35,6 @@ let renderBlock = (block) => {
 		let linkItem =
 			`
 			<li>
-				<p><em>Link</em></p>
 				<picture>
 					<source media="(max-width: 428px)" srcset="${ block.image.thumb.url }">
 					<source media="(max-width: 640px)" srcset="${ block.image.large.url }">
@@ -55,10 +54,8 @@ let renderBlock = (block) => {
 		let imageItem = 
 		
 		`
-		  <img src="${block.image.original.url}">
 
-			<p>${block.title}</p>
-			<p>${block.description}</p>
+		  <img src="${block.image.original.url}">
 		`;
 
 		channelBlocks.insertAdjacentHTML('beforeend', imageItem);;
@@ -69,6 +66,7 @@ let renderBlock = (block) => {
 	// Text!
 	else if (block.class == 'Text') {
 		// …up to you!
+
 	}
 
 	// Uploaded (not linked) media…
@@ -141,7 +139,6 @@ let renderUser = (user, container) => { // You can have multiple arguments for a
 	let userAddress =
 		`
 		<address>
-			<img src="${ user.avatar_image.display }">
 			<h3>${ user.first_name }</h3>
 			<p><a href="https://are.na/${ user.slug }">Are.na profile ↗</a></p>
 		</address>
