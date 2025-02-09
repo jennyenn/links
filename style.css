@@ -181,6 +181,16 @@ footer{
 	filter: grayscale(100%);
 }
 
+
+iframe {
+    width: 100%;
+    height: 100%;
+	aspect-ratio: 1/1;
+    object-fit: cover;
+	filter: grayscale(100%);
+	overflow: hidden;
+}
+
 blockquote{
 	width: 100vw;
 	border: 1px solid var(--color--lightgreen);
@@ -264,12 +274,32 @@ blockquote p{
 	}
 
 	#channel-blocks {
-		justify-content: center;
+		justify-content: left;
 		gap: calc(0.4*var(--gutter-size));
 	}
-
+	
 	#channel-blocks img, video{
 		width: 25vw;
+	}
+
+	#channel-blocks img:hover {
+		border: 3px solid var(--color--fluorescentgreen);
+		filter: grayscale(0%);
+	}
+
+	#channel-blocks video:hover {
+		border: 3px solid var(--color--fluorescentgreen);
+		filter: grayscale(0%);
+	}
+
+	iframe{
+		width: 25vw;
+		height: 25vw;
+	}
+	
+	iframe:hover{
+		border: 3px solid var(--color--fluorescentgreen);
+		filter: grayscale(0%);
 	}
 
 	#hero{

@@ -126,6 +126,7 @@ let renderBlock = (block) => {
 		if (embed.includes('video')) {
 			// …still up to you, but here’s an example `iframe` element:
 			let linkedVideoItem =
+			
 				`
 				<li>
 					${ block.embed.html }
@@ -133,6 +134,7 @@ let renderBlock = (block) => {
 				`
 			channelBlocks.insertAdjacentHTML('beforeend', linkedVideoItem)
 			// More on iframe: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe
+			// reference: https://www.w3schools.com/tags/tag_iframe.ASP
 		}
 
 		// Linked audio!
