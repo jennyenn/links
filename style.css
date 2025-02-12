@@ -218,11 +218,12 @@ footer{
 }
 
 .blocks{
-	width: var(--block-size);
-	height: var(--block-size);
-
+	
+	width: 100%;
+	aspect-ratio: 1/1;
 	border: 1px solid var(--color--purple);
 	color: var(--color--purple);
+	overflow-x: hidden;
 }
 
 iframe {
@@ -310,6 +311,11 @@ blockquote p{
 	#channel-blocks video:hover {
 		border: 3px solid var(--color--fluorescentgreen);
 		filter: grayscale(0%);
+	}
+
+	.blocks{
+		width: var(--block-size);
+		height: var(--block-size);
 	}
 
 	iframe{
