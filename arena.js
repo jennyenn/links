@@ -27,6 +27,7 @@ let placeChannelInfo = (data) => {
 
 // Then our big function for specific-block-type rendering:
 let renderBlock = (block) => {
+	
 	// To start, a shared `ul` where we’ll insert all our blocks
 	let channelBlocks = document.querySelector('#channel-blocks')
 
@@ -81,6 +82,7 @@ let renderBlock = (block) => {
 
 	// Uploaded (not linked) media…
 	else if (block.class == 'Attachment') {
+
 		let attachment = block.attachment.content_type // Save us some repetition
 
 		// Uploaded videos!
@@ -101,15 +103,25 @@ let renderBlock = (block) => {
 
 		// Uploaded PDFs!
 		else if (attachment.includes('pdf')) {
+			console.log(block);
+
+	
+
+		
+
 			// …up to you!
 		}
 
 		// Uploaded audio!
 		else if (attachment.includes('audio')) {
+
+			console.log(block.title)
+			
 			// …still up to you, but here’s an `audio` element:
 			let audioItem =
 				`
-				<li>
+				<li class="blocks">
+					<p> audio: ${ block.title }</p>
 					<audio controls src="${ block.attachment.url }"></video>
 				</li>
 				`
@@ -139,6 +151,7 @@ let renderBlock = (block) => {
 
 		// Linked audio!
 		else if (embed.includes('rich')) {
+		
 			// …up to you!
 		}
 	}
