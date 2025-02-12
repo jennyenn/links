@@ -33,11 +33,12 @@ let renderBlock = (block) => {
 
 	// Links!
 	if (block.class == 'Link') {
+
 		let linkItem =
 			`
 			<li>
 				<picture>
-					<img src="${ block.image.original.url }">
+					<a href="${ block.source.url }">  <img src="${ block.image.original.url }"></a>
 					<source media="(max-width: 428px)" srcset="${ block.image.thumb.url }">
 					<source media="(max-width: 640px)" srcset="${ block.image.large.url }">
 				</picture>
@@ -103,10 +104,15 @@ let renderBlock = (block) => {
 
 		// Uploaded PDFs!
 		else if (attachment.includes('pdf')) {
-			console.log(block);
 
-	
-
+			let PDFItem =
+				`
+				<li class="blocks">
+					<p> PDF: ${ block.title }</p>
+					${ block.attachment.url }
+				</li>
+				`
+			channelBlocks.insertAdjacentHTML('beforeend', PDFItem)
 		
 
 			// …up to you!
@@ -114,8 +120,6 @@ let renderBlock = (block) => {
 
 		// Uploaded audio!
 		else if (attachment.includes('audio')) {
-
-			console.log(block.title)
 			
 			// …still up to you, but here’s an `audio` element:
 			let audioItem =
@@ -149,11 +153,22 @@ let renderBlock = (block) => {
 			// reference: https://www.w3schools.com/tags/tag_iframe.ASP
 		}
 
-		// Linked audio!
-		else if (embed.includes('rich')) {
-		
-			// …up to you!
-		}
+	// Linked audio!(Behance)
+	else if (embed.includes('rich')) {
+
+		console.log(block)
+	
+		let RichItem = 
+			
+			`
+			<li>
+				${ block.embed.html }
+			</li>
+			`
+		channelBlocks.insertAdjacentHTML('beforeend', RichItem)
+		// …up to you!
+	}
+
 	}
 }
 
