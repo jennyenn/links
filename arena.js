@@ -121,12 +121,15 @@ let renderBlock = (block) => {
 		// Uploaded audio!
 		else if (attachment.includes('audio')) {
 			
+			console.log(block)
+
 			// …still up to you, but here’s an `audio` element:
 			let audioItem =
+
 				`
 				<li class="blocks">
 					<p> audio: ${ block.title }</p>
-					<audio controls src="${ block.attachment.url }"></video>
+					<audio controls src="${ block.attachment.url }" style=" width:300px ;height:20px " ></audio>
 				</li>
 				`
 			channelBlocks.insertAdjacentHTML('beforeend', audioItem)
@@ -161,7 +164,7 @@ let renderBlock = (block) => {
 		let RichItem = 
 			
 			`
-			<li>
+			<li class="blocks">
 				${ block.embed.html }
 			</li>
 			`

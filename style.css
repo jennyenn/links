@@ -272,6 +272,7 @@ blockquote p{
 		font-size: calc(7*var(--base-size));
 		padding-block: calc(0.5*var(--gutter-size));
 		line-height: 100%;
+		
 	}
 
 	h2{
