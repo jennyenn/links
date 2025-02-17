@@ -38,11 +38,7 @@ let renderBlock = (block) => {
 	let audioBlocks = document.querySelector('#audio-blocks')
 	let linkBlocks = document.querySelector('#link-blocks')
 
-	console.log(imageBlocks)
-	console.log(videoBlocks)
-	console.log(textBlocks)
-	console.log(audioBlocks)
-	console.log(linkBlocks)
+	console.log(block)
 
 	// Links!
 	if (block.class == 'Link') {
@@ -105,7 +101,6 @@ let renderBlock = (block) => {
 			let videoItem =
 				
 				`
-				<img src="${ block.image.original.url }">
 				<li>
 					<video controls src="${ block.attachment.url }"></video>
 				</li>

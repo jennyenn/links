@@ -1,6 +1,31 @@
 @import url('https://fonts.googleapis.com/css2?family=Anek+Latin:wght@100..800&family=Cabin:ital,wght@0,400..700;1,400..700&family=Days+One&display=swap" rel="stylesheet');
 
 
+:root {
+	--heading-font:  "Cabin", serif;
+	--context-font:  "Anek Latin", serif;
+
+	/* font size */
+	--base-size: 16px;
+	--gutter-size:calc(2*var(--base-size));
+	
+	--color--background: #E5E5E5;
+	--color--black: #141414;
+	--color--fluorescentgreen: #29E648;
+	--color--lightgreen: #03BD5E;
+	--color--darkgreen: #015A4F;
+	--color--purple: #E427FF;
+
+	--block-size: 19.5vw;
+}
+
+@media (min-width:768px){
+	:root{
+		--base-size: 17px;
+		--gutter-size: calc(4*var(--base-size));
+	}
+}
+
 html{
 	/* https://www.w3schools.com/cssref/css_pr_scroll-snap-type.php */
 	scroll-behavior: smooth;
@@ -24,12 +49,13 @@ nav{
 	top: var(--gutter-size);
 }
 
-
 main{
 	max-width: 100vw;
 }
 
-main section{
+section{
+	width: 100vw;
+	height: 100vh;
 	margin-inline: var(--gutter-size);
 }
 
@@ -50,11 +76,6 @@ p{
 	font-weight: 200;
 }
 
-video{
-	object-fit: contain;
-	/* aspect-ratio: 4/3; */
-	width: 100%;
-}
 
  
 /* .marquee{
@@ -70,8 +91,6 @@ video{
 	display: inline-block; 
 	animation: scroll 20s linear infinite;
 }  */
-
-
 
 /* @keyframes scroll {
 	from {
@@ -97,52 +116,53 @@ video{
 /* blocks *//* blocks *//* blocks */
 /* blocks *//* blocks *//* blocks */
 
+/* image *//* image *//* image */
 
-#channel-blocks {
+section:has(#image-blocks){
+	margin: 0px;
+}
+
+#image-blocks{
 	display: flex;
-	flex-wrap: wrap;
-	gap: calc(0.5*var(--gutter-size));
+	flex-direction: row;
+	flex-wrap: nowrap;
+	gap: calc(0.2*var(--gutter-size));
+	overflow-x: auto;
+	margin-top: calc(2*var(--gutter-size));
+	padding-left: 0px;
 }
 
-#channel-blocks img, video{
-	width: 100%;
+#image-blocks img{
+	width:  var(--block-size);
+	aspect-ratio: 1/1;
 	object-fit: cover;
-	aspect-ratio: 1/1;
-	overflow: hidden;
+	filter: grayscale(100%);
+	/* https://developer.mozilla.org/en-US/docs/Web/CSS/filter-function/grayscale */
+}
 
-	/* reference: https://www.geeksforgeeks.org/how-to-change-the-color-of-an-image-to-black-and-white-using-css/ */
+/* video *//* video *//* video */
+
+section:has(#video-blocks){
+	background-color: #141414;
+	margin: 0px;
+	display: flex;
+}
+
+#video-blocks{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	gap: calc(0.2*var(--gutter-size));
+	overflow-x: auto;
+	align-items: center;
+	padding-left: calc(3*var(--gutter-size));
+}
+
+#video-blocks video{
+	height: calc(1.6*var(--block-size));
+	aspect-ratio: 16/9;
 	filter: grayscale(100%);
 }
-
-.blocks{
-	width: 100%;
-	aspect-ratio: 1/1;
-	border: 1px solid var(--color--purple);
-	color: var(--color--purple);
-	overflow-x: hidden;
-}
-
-iframe {
-    width: 100%;
-    height: 100%;
-	aspect-ratio: 1/1;
-    object-fit: cover;
-	filter: grayscale(100%);
-	overflow: hidden;
-}
-
-blockquote{
-	width: 100vw;
-	border: 1px solid var(--color--lightgreen);
-}
-
-blockquote p{
-	font-family: var(--context-font);
-	font-size: calc(1.5*var(--base-size));
-	margin: var(--gutter-size);
-	color: var(--color--lightgreen);
-}
-
 
 /* desktop */
 /* desktop */
@@ -176,56 +196,6 @@ blockquote p{
 	/* blocks  *//* blocks  *//* blocks  */
 	/* blocks  *//* blocks  *//* blocks  */
 
-	#channel-blocks {
-		justify-content: left;
-		gap: calc(0.2*var(--gutter-size));
-	}
 	
-	#channel-blocks img, video{
-		width: var(--block-size);
-		height: var(--block-size);
-	}
-
-	#channel-blocks img:hover {
-		border: 3px solid var(--color--fluorescentgreen);
-		filter: grayscale(0%);
-	}
-
-	#channel-blocks video:hover {
-		border: 3px solid var(--color--fluorescentgreen);
-		filter: grayscale(0%);
-	}
-
-	.blocks{
-		width: var(--block-size);
-		height: var(--block-size);
-	}
-
-	iframe{
-		width: var(--block-size);
-		height: var(--block-size);
-	}
-	
-	iframe:hover{
-		border: 3px solid var(--color--fluorescentgreen);
-		filter: grayscale(0%);
-	}
-
-	blockquote {
-		width: var(--block-size);
-		height: var(--block-size);
-	
-	}
-
-	blockquote p{
-		font-family: var(--context-font);
-		font-size: calc(1*var(--base-size));
-		margin: calc(0.1*var(--gutter-size));
-	}
-
-	.quote{
-		margin-block: var(--gutter-size);
-	}
-
 
 }
