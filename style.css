@@ -29,7 +29,7 @@
 @media (min-width:1200px){
 	:root{
 		--base-size: 18px;
-		--gutter-size: calc(7*var(--base-size));
+		--gutter-size: calc(5.5*var(--base-size));
 	}
 }
 
@@ -41,37 +41,70 @@
 }
 
 html{
+	/* https://www.w3schools.com/cssref/css_pr_scroll-snap-type.php */
 	scroll-behavior: smooth;
-	overflow-x: hidden;
 }
 
 body{
+	display: flex;
+	flex-direction: column;
+	width: 100vw;
+	height: 100vh;
 	background-color: var(--color--background);
+	overflow-x: hidden;
+}
+
+nav{
+	font-size: calc(1.8*var(--base-size));
+	position: fixed;
+	right: var(--gutter-size);
+	top: var(--gutter-size);
 }
 
 header{
-	margin: var(--gutter-size);
+	position: relative;
+	width: 100vw;
+	height: 100vh;
+	padding-top: var(--gutter-size);
+	padding-inline: var(--gutter-size);
 	z-index: 1;
 }
 
+h1{
+	text-transform: uppercase;
+	width: 50vw;
+	font-family: var(--heading-font);
+	font-size: calc(4.5*var(--base-size));
+	font-weight: 600;
+	text-align: left;
+	line-height: 100%;
+	color: #015A4F;
+}
+
+aside{
+	width: 100%;
+	position: absolute;
+	left: var(--gutter-size);
+	bottom: var(--gutter-size);
+}
+
+#arrow {
+	font-family: var(--heading-font);
+	font-size: calc(3*var(--base-size));
+	font-weight: 600;
+	color: #015A4F;
+	transform: rotate(90deg);
+	position: absolute;
+	right: var(--gutter-size);
+	bottom: var(--gutter-size);
+}
+
 main{
-	background-color: var(--color--darkgreen);
-	/* margin-inline: var(--gutter-size); */
 	max-width: 100vw;
 }
 
 main section{
 	margin-inline: var(--gutter-size);
-}
-
-h1{
-	font-family: var(--heading-font);
-	font-size: calc(4.5*var(--base-size));
-	font-weight: 700;
-	padding-bottom: var(--gutter-size);
-	text-align: left;
-	line-height: 90%;
-	/* width: 100vw; */
 }
 
 h2{
@@ -91,10 +124,6 @@ p{
 	font-weight: 200;
 }
 
-aside{
-	padding-top: calc(0.5*var(--gutter-size));
-}
-
 a{
 	text-decoration: underline;
 	color: var(--color--darkgreen);
@@ -102,10 +131,6 @@ a{
 
 a:hover{
 	color: var(--color--purple);
-}
-
-section{
-	margin-top: var(--gutter-size);
 }
 
 /* img {
@@ -120,21 +145,7 @@ video{
 	width: 100%;
 }
 
-footer{
-	margin-top: var(--gutter-size);
-}
-
-.quote{
-	background-color: var(--color--darkgreen);
-	color: white;
-	padding: var(--gutter-size);
-}
-
-.quote p{
-	font-size: calc(1.2*var(--base-size));
-	text-align: center;
-}
-
+/* 
 .marquee{
 	width: 100vw;
 	margin-top: 0px;
@@ -147,7 +158,7 @@ footer{
 .marquee p{
 	display: inline-block; 
 	animation: scroll 20s linear infinite;
-}
+} */
 
 
 
@@ -169,16 +180,6 @@ footer{
 	font-size: calc(0.9*var(--base-size));
 }
 
-
-#hero{
-	display: flex;
-	flex-direction: column;
-	min-height: 130vh;
-	align-items: center;
-	position: relative;
-	overflow: hidden; 
-	margin-bottom:-30px;
-}
 
 .background_mobile{
 	display: block;
@@ -254,33 +255,57 @@ blockquote p{
 
 @media (min-width: 768px){
 
+	html{
+		scroll-snap-type: x mandatory;
+	}
+
 	body{
-		max-width: 1900px;
-    	margin: 0 auto;
+		flex-direction: row;
+	}
+
+	section{
+		width: 100vw;
+		height: 100vh;
 	}
 
 	header{
-		margin-inline: calc(1*var(--gutter-size));
-		margin-block: calc(0.2*var(--gutter-size));
-	}
-
-	header p{
-		width: 70%;
+		width: 100vw;
 	}
 
 	h1{
-		font-size: calc(7*var(--base-size));
-		padding-block: calc(0.5*var(--gutter-size));
+		width: 40vw;
+		font-size: calc(6*var(--base-size));
+		position: absolute;
+		left: var(--gutter-size);
+		top: var(--gutter-size);
 		line-height: 100%;
-		
+	}
+
+	#channel-description {
+		position: absolute;
+		width: 35vw;
+		top: var(--gutter-size);
+		right: var(--gutter-size);
+		padding: calc(0.2*var(--gutter-size));
+	}
+
+	aside p{
+		left: 0px;
+		bottom: 0px;
+	}
+
+	nav{
+		top: calc(0.5*var(--gutter-size));
+		right: calc(0.5*var(--gutter-size));
+	}
+
+	#arrow{
+		font-size: calc(5*var(--base-size));
+		transform: none;
 	}
 
 	h2{
 		font-size: calc(3*var(--base-size));
-	}
-
-	aside{
-		padding-top: calc(0.3*var(--gutter-size));
 	}
 
 		
@@ -375,12 +400,6 @@ blockquote p{
 /* h1 responsive */
 /* h1 responsive */
 
-@media (min-width:768px){
-	h1{
-		font-size: calc(4.5*var(--base-size));
-	}
-}
-
 @media (min-width:1024px){
 	h1{
 		font-size: calc(6.5*var(--base-size));
@@ -395,7 +414,7 @@ blockquote p{
 
 @media (min-width:1500px){
 	h1{
-		font-size: calc(9*var(--base-size));
+		font-size: calc(8.5*var(--base-size));
 	}
 }
 
