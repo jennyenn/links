@@ -115,12 +115,12 @@ let renderBlock = (block) => {
 
 			let PDFItem =
 				`
-				<li class="blocks">
-					<p> PDF: ${ block.title }</p>
-					${ block.attachment.url }
-				</li>
+				<embed src="${ block.attachment.url }" class="PDF"> 
+					
 				`
 			linkBlocks.insertAdjacentHTML('beforeend', PDFItem)
+
+			// PDF display: https://stackoverflow.com/questions/17784037/how-to-display-pdf-file-in-html
 		
 
 			// …up to you!
@@ -172,7 +172,7 @@ let renderBlock = (block) => {
 		let RichItem = 
 			
 			`
-			<li class="blocks">
+			<li class="rich">
 				${ block.embed.html }
 			</li>
 			`

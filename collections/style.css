@@ -55,7 +55,6 @@ main{
 
 section{
 	width: 100vw;
-	margin-inline: var(--gutter-size);
 }
 
 h2{
@@ -133,12 +132,13 @@ section:has(#image-blocks){
 }
 
 #image-blocks img{
-	width:  calc(4*var(--block-size));
+	width: calc(4*var(--block-size));
 	aspect-ratio: 1/1;
 	object-fit: cover;
 	filter: grayscale(100%);
 	/* https://developer.mozilla.org/en-US/docs/Web/CSS/filter-function/grayscale */
 	animation: scroll 10s linear infinite;
+	overflow-x: visible;
 }
 
 #image-blocks img:nth-child(1){
@@ -172,6 +172,7 @@ section:has(#video-blocks){
 	align-items: center;
 	padding-left: 0px;
 	padding-block: calc(8*var(--gutter-size));
+	scroll-snap-type: x mandatory;
 }
 
 #video-blocks video{
@@ -184,19 +185,39 @@ section:has(#video-blocks){
 
 section:has(#text-blocks){
 	height: auto;
-	display: grid;
-	gap: var(--gutter-size);
-	padding: var(--gutter-size);
+	padding: calc(2*var(--gutter-size));
 }
 blockquote{
-	width: 70%;
-	padding-bottom: var(--gutter-size);
+	margin-bottom: calc(2*var(--gutter-size));
 }
 
 blockquote p{
-	font-size: calc(3*var(--base-size));
+	font-size: calc(2*var(--base-size));
 	font-weight: 400;
 	color: #015A4F;
+}
+
+
+/* links *//* links *//* links */
+
+section:has(#link-blocks){
+	width: 100vw;
+	height: auto;
+	padding: calc(1*var(--gutter-size));
+}
+
+#link-blocks{
+	display: flex;
+	flex-direction: column;
+	gap: var(--gutter-size);
+}
+
+#link-blocks iframe, .rich, img, .PDF{
+	object-fit: cover;
+	overflow-x: hidden;
+	width: 100%;
+	aspect-ratio: 1/2;
+	filter: grayscale(100%);
 }
 
 /* desktop */
@@ -242,6 +263,8 @@ blockquote p{
 		width:  var(--block-size);
 	}
 
+	/* video  *//* video  *//* video  */
+
 	section:has(#video-blocks){
 		height: 120vh;
 	}
@@ -250,14 +273,49 @@ blockquote p{
 		flex-direction: row;
 		gap: calc(0.2*var(--gutter-size));
 		overflow-x: auto;
-		padding-left: calc(4*var(--gutter-size));
+		padding-inline: calc(4*var(--gutter-size));
 		padding-block: 0px;
 	}
 	
 	#video-blocks video{
 		flex-direction: row;
-		height: calc(1.6*var(--block-size));
+		height: calc(1.8*var(--block-size));
 	}
-	
+
+
+	/* text  *//* text  *//* text  */
+
+	section:has(#text-blocks){
+		padding: calc(2*var(--gutter-size));
+	}
+
+	blockquote{
+		width: 75%;
+		margin-bottom: calc(3*var(--gutter-size));
+	}
+
+	blockquote:nth-child(2){
+		margin-left: auto;
+	}
+
+	blockquote p{
+		font-size: calc(3*var(--base-size));
+	}
+
+	/* links *//* links *//* links */
+
+	#link-blocks{
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		gap: calc(1*var(--gutter-size));
+		justify-content: center;
+	}
+
+	#link-blocks iframe, .rich, img , .PDF{
+		width: calc(1.2*var(--block-size));
+		aspect-ratio: 3/4;
+		filter: grayscale(100%);
+	}
 
 }
