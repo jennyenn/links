@@ -108,7 +108,7 @@ let renderBlock = (block) => {
 			let videoItem =
 				
 				`
-				<li>
+				<li class="video-blocks">
 					<video controls src="${ block.attachment.url }"></video>
 				</li>
 				`
@@ -162,11 +162,11 @@ let renderBlock = (block) => {
 			let linkedVideoItem =
 			
 				`
-				<li>
+				<li class="video-blocks">
 					${ block.embed.html }
 				</li>
 				`
-			linkBlocks.insertAdjacentHTML('beforeend', linkedVideoItem)
+			videoBlocks.insertAdjacentHTML('beforeend', linkedVideoItem)
 			// More on iframe: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe
 			// reference: https://www.w3schools.com/tags/tag_iframe.ASP
 		}
@@ -192,16 +192,16 @@ let renderBlock = (block) => {
 
 
 // It‘s always good to credit your work:
-let renderUser = (user, container) => { // You can have multiple arguments for a function!
-	let userAddress =
-		`
-		<address>
-			<h3>${ user.first_name }</h3>
-			<p><a href="https://are.na/${ user.slug }">Are.na profile ↗</a></p>
-		</address>
-		`
-	container.insertAdjacentHTML('beforeend', userAddress)
-}
+// let renderUser = (user, container) => { // You can have multiple arguments for a function!
+// 	let userAddress =
+// 		`
+// 		<address>
+// 			<h3>${ user.first_name }</h3>
+// 			<p><a href="https://are.na/${ user.slug }">Are.na profile ↗</a></p>
+// 		</address>
+// 		`
+// 	container.insertAdjacentHTML('beforeend', userAddress)
+// }
 
 // Now that we have said what we can do, go get the data:
 fetch(`https://api.are.na/v2/channels/${channelSlug}?per=100`, { cache: 'no-store' })
@@ -230,6 +230,27 @@ fetch(`https://api.are.na/v2/channels/${channelSlug}?per=100`, { cache: 'no-stor
 
 		// // mouseenter and leave: https://developer.mozilla.org/en-US/docs/Web/API/Element/mouseenter_event
 		// })
+
+
+		// fail!!!!!!
+
+	// 	let showcolorClass = 'showcolor' // Variables again.
+	// 	let showcolorBlocks = document.querySelectorAll('.video-blocks') // Get all of them.
+
+	// 	// Loop through the list, doing this `forEach` one.
+	// 	showcolorBlocks.forEach((block) => {
+	// 	let sectionObserver = new IntersectionObserver((entries) => {
+	// 	let [entry] = entries
+
+	// 	if (entry.isIntersecting) {
+	// 		block.classList.add(showcolorClass)
+	// 	} else {
+	// 		block.classList.remove(showcolorClass)
+	// 	}
+	// })
+
+	// sectionObserver.observe(block) // Watch each one!
+	// })
 
 		// Also display the owner and collaborators:
 		let channelUsers = document.querySelector('#channel-users') // Show them together

@@ -216,11 +216,23 @@ section:has(#video-blocks){
 	scroll-snap-type: x mandatory;
 }
 
-#video-blocks video{
+.video-blocks video{
 	height: calc(3*var(--block-size));
 	aspect-ratio: 16/9;
 	filter: grayscale(100%);
 }
+
+.video-blocks iframe{
+	height: calc(3*var(--block-size));
+	aspect-ratio: 16/9;
+	filter: grayscale(100%);
+}
+
+.video-blocks:hover video, iframe{
+	filter: grayscale(0%);
+}
+
+
 
 /* text *//* text *//* text */
 
@@ -328,8 +340,6 @@ section:has(#link-blocks){
 		height:  var(--block-size);
 	}
 
-	
-
 	/* video  *//* video  *//* video  */
 
 	section:has(#video-blocks){
@@ -349,6 +359,9 @@ section:has(#link-blocks){
 		height: calc(1.8*var(--block-size));
 	}
 
+	#video-blocks iframe{
+		height: calc(1.8*var(--block-size));
+	}	
 
 	/* text  *//* text  *//* text  */
 
