@@ -67,13 +67,13 @@ let renderBlock = (block) => {
 
 		let imageItem = 
 		`
-		<div class = "image-blocks">
+		<figure class = "image-blocks">
 			<img src="${block.image.original.url}">
 			<figcaption>
 				<p>${block.title}</p>
 				<p>${block.description}</p>
 			</figcaption>
-		</div>
+		</figure>
 		
 		`;
 

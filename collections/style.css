@@ -123,7 +123,7 @@ section:has(#image-blocks){
 }
 
 #image-blocks{
-	height: 100%;
+	height: 100vh;
 	display: flex;
 	flex-direction: row;
 	flex-wrap: nowrap;
@@ -131,15 +131,20 @@ section:has(#image-blocks){
 	overflow-x: auto;
 	margin-top: calc(3*var(--gutter-size));
 	padding-left: 0px;
+	animation: scroll 30s linear infinite;
+	overflow-x: visible;
+}
+
+#image-blocks:hover{
+	animation-play-state: paused;
+	/* https://www.w3schools.com/cssref/css3_pr_animation-play-state.php */
 }
 
 .image-blocks{
 	width: calc(4*var(--block-size));
-	height: calc(4*var(--block-size));
+	/* height: calc(4*var(--block-size)); */
 	aspect-ratio: 1/1;
 	object-fit: cover;
-	animation: scroll 10s linear infinite;
-	overflow-x: visible;
 	position: relative;
 }
 
@@ -162,20 +167,20 @@ section:has(#image-blocks){
 	  transform: translateX(0%);
 	}
 	to {
-	  transform: translateX(-100%);
+	  transform: translateX(-500%);
 	}
 }
 
 figcaption{
-	width: 100vw;
-	position: relative;
+	width: 50vw;
+	position: absolute;
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
-	gap: calc(2*var(--gutter-size));	
-	position: absolute;
-	bottom: calc(-4*var(--gutter-size));
-	left: var(--gutter-size);
+	gap: calc(2*var(--gutter-size));
+	bottom: calc(-3*var(--gutter-size));
+	left: calc(1*var(--gutter-size));
+	z-index: 2;
 }
 
 figcaption p{
