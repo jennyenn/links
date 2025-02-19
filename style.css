@@ -134,7 +134,15 @@ a{
 }
 
 a:hover{
-	color: var(--color--purple);
+	color: var(--color--black);
+}
+
+
+img:hover{
+	cursor: url(assets/cursor.png), auto;
+
+	/* how to set image as cursor upon hover: https://dev.to/enjeck/set-image-as-cursor-upon-hover-3nbh */
+	/* cursor: url(images/cursor.png), auto; */
 }
 
 /* desktop */
@@ -200,11 +208,6 @@ a:hover{
 		top: var(--gutter-size);
 		scale: 0.7;
 	}
-
-		
-	/* how to set image as cursor upon hover: https://dev.to/enjeck/set-image-as-cursor-upon-hover-3nbh */
-	/* cursor: url(images/cursor.png), auto; */
-	
 }
 
 
