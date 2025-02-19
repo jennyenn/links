@@ -239,18 +239,18 @@ section:has(#video-blocks){
 .video-blocks video{
 	height: calc(3*var(--block-size));
 	aspect-ratio: 16/9;
-	filter: grayscale(100%) blur(5px);
+	filter: grayscale(100%) opacity(80%);
 }
 
 .video-blocks iframe{
 	height: calc(3*var(--block-size));
 	aspect-ratio: 16/9;
-	filter: grayscale(100%) blur(5px);
+	filter: grayscale(100%) opacity(30%);
 }
 
 .video-blocks.notblur iframe,
 .video-blocks.notblur video{
-	filter: grayscale(100%) blur(0px);
+	filter: grayscale(100%) opacity(100%);
 }
 
 
@@ -316,20 +316,26 @@ section:has(#link-blocks){
 	gap: var(--gutter-size);
 }
 
+.link-blocks{
+	background-color: var(--color--black);
+}
+
 .link-blocks iframe,.rich ,img, .PDF{
 	object-fit: cover;
 	overflow-x: hidden;
 	width: 100%;
 	aspect-ratio: 3/4;
-	filter: grayscale(100%) blur(5px);
+	filter: grayscale(100%) opacity(50%);	
 }
+
+/* change blur to opacity */
 
 .rich ,
 .link-blocks.notblur iframe,
 .link-blocks.notblur img,
 .link-blocks.notblur .PDF 
 {
-	filter: grayscale(100%) blur(0px);
+	filter: grayscale(100%) opacity(100%);
 }
 
 .link-blocks iframe:hover, .rich:hover, 
