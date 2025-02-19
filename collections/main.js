@@ -235,20 +235,42 @@ fetch(`https://api.are.na/v2/channels/${channelSlug}?per=100`, { cache: 'no-stor
 		// })
 
 
-		// fail!!!!!!
+		// videp blur
 
-		let showcolorClass = 'notblur' // Variables again.
-		let showcolorBlocks = document.querySelectorAll('.link-blocks') // Get all of them.
+		let notblurvideoClass = 'notblur' // Variables again.
+		let notblurvideoBlocks = document.querySelectorAll('.video-blocks') // Get all of them.
 
 		// Loop through the list, doing this `forEach` one.
-		showcolorBlocks.forEach((block) => {
+		notblurvideoBlocks.forEach((block) => {
 		let sectionObserver = new IntersectionObserver((entries) => {
 		let [entry] = entries
 
 		if (entry.isIntersecting) {
-			block.classList.add(showcolorClass)
+			block.classList.add(notblurvideoClass)
 		} else {
-			block.classList.remove(showcolorClass)
+			block.classList.remove(notblurvideoClass)
+		}}, {
+			rootMargin: '0% -33% 0% -33% ', // CSS-ish: top/right/bottom/left.
+		})
+
+		sectionObserver.observe(block) // Watch each one!
+		})
+
+
+		// links blur
+
+		let notblurlinkClass = 'notblur' // Variables again.
+		let notblurlinkBlocks = document.querySelectorAll('.link-blocks') // Get all of them.
+
+		// Loop through the list, doing this `forEach` one.
+		notblurlinkBlocks.forEach((block) => {
+		let sectionObserver = new IntersectionObserver((entries) => {
+		let [entry] = entries
+
+		if (entry.isIntersecting) {
+			block.classList.add(notblurlinkClass)
+		} else {
+			block.classList.remove(notblurlinkClass)
 		}}, {
 			rootMargin: '-33% 0% -33% 0%', // CSS-ish: top/right/bottom/left.
 		})
