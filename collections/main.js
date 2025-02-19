@@ -137,7 +137,7 @@ let renderBlock = (block) => {
 				`
 				<li class="blocks">
 					<p> ${ block.title }</p>
-					<audio controls src="${ block.attachment.url }" style=" width:800px ;height:40px " ></audio>
+					<audio controls src="${ block.attachment.url }" ></audio>
 				</li>
 				`
 			audioBlocks.insertAdjacentHTML('beforeend', audioItem)

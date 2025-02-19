@@ -202,16 +202,23 @@ blockquote p{
 section:has(#audio-blocks){
 	background-color: var(--color--darkgreen);
 	display: flex;
+	height: 120vh;
 }
 
 #audio-blocks{
 	align-content: center;
 	margin: auto;
+	padding: calc(2*var(--gutter-size));
 }
 
 #audio-blocks p{
 	color: var(--color--background);
-	
+}
+
+audio{
+	width: 60vw;
+	height: 5vh;
+	margin-bottom: var(--gutter-size);
 }
 
 /* links *//* links *//* links */
@@ -316,6 +323,14 @@ section:has(#link-blocks){
 
 	blockquote p{
 		font-size: calc(3*var(--base-size));
+	}
+
+	/* audio *//* audio *//* audio */
+
+	audio{
+		width: 60vw;
+		height: 5vh;
+		margin-bottom: 0px;
 	}
 
 	/* links *//* links *//* links */
