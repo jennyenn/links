@@ -197,6 +197,22 @@ blockquote p{
 	color: #015A4F;
 }
 
+/* audio *//* audio *//* audio */
+
+section:has(#audio-blocks){
+	background-color: var(--color--darkgreen);
+	display: flex;
+}
+
+#audio-blocks{
+	align-content: center;
+	margin: auto;
+}
+
+#audio-blocks p{
+	color: var(--color--background);
+	
+}
 
 /* links *//* links *//* links */
 
