@@ -303,12 +303,28 @@ section:has(#link-blocks){
 	gap: var(--gutter-size);
 }
 
-#link-blocks iframe, .rich, img, .PDF{
+.link-blocks iframe,.rich ,img, .PDF{
 	object-fit: cover;
 	overflow-x: hidden;
 	width: 100%;
-	aspect-ratio: 1/2;
-	filter: grayscale(100%);
+	aspect-ratio: 3/4;
+	/* filter: grayscale(100%); */
+	filter: grayscale(100%) blur(5px);
+}
+
+.rich ,
+.link-blocks.notblur iframe,
+.link-blocks.notblur img,
+.link-blocks.notblur .PDF 
+{
+	filter: grayscale(100%) blur(0px);
+}
+
+
+.link-blocks iframe:hover, .rich:hover, 
+.link-blocks.notblur img:hover, 
+.link-blocks.notblur .PDF:hover{
+	filter: grayscale(0%);
 }
 
 /* desktop */
@@ -367,6 +383,7 @@ section:has(#link-blocks){
 		overflow-x: auto;
 		padding-inline: calc(4*var(--gutter-size));
 		padding-block: 0px;
+		scroll-snap-type: x mandatory;
 	}
 	
 	#video-blocks video{
@@ -415,10 +432,8 @@ section:has(#link-blocks){
 		justify-content: center;
 	}
 
-	#link-blocks iframe, .rich, img , .PDF{
+	.link-blocks iframe, .rich,.link-blocks img , .link-blocks .PDF{
 		width: calc(1.2*var(--block-size));
-		aspect-ratio: 3/4;
-		filter: grayscale(100%);
 	}
 
 }

@@ -45,7 +45,7 @@ let renderBlock = (block) => {
 
 		let linkItem =
 			`
-			<li>
+			<li class="link-blocks">
 				<picture>
 					<a href="${ block.source.url }">  <img src="${ block.image.original.url }"></a>
 					<source media="(max-width: 428px)" srcset="${ block.image.thumb.url }">
@@ -122,7 +122,9 @@ let renderBlock = (block) => {
 
 			let PDFItem =
 				`
-				<embed src="${ block.attachment.url }" class="PDF"> 
+				<li class="link-blocks">
+					<embed src="${ block.attachment.url }" class="PDF"> 
+				</li>
 					
 				`
 			linkBlocks.insertAdjacentHTML('beforeend', PDFItem)
@@ -180,8 +182,8 @@ let renderBlock = (block) => {
 		let RichItem = 
 			
 			`
-			<li class="rich">
-				${ block.embed.html }
+			<li  class="link-blocks rich">
+					${ block.embed.html }
 			</li>
 			`
 		linkBlocks.insertAdjacentHTML('beforeend', RichItem)
@@ -235,23 +237,24 @@ fetch(`https://api.are.na/v2/channels/${channelSlug}?per=100`, { cache: 'no-stor
 
 		// fail!!!!!!
 
-	// 	let showcolorClass = 'showcolor' // Variables again.
-	// 	let showcolorBlocks = document.querySelectorAll('.video-blocks') // Get all of them.
+		let showcolorClass = 'notblur' // Variables again.
+		let showcolorBlocks = document.querySelectorAll('.link-blocks') // Get all of them.
 
-	// 	// Loop through the list, doing this `forEach` one.
-	// 	showcolorBlocks.forEach((block) => {
-	// 	let sectionObserver = new IntersectionObserver((entries) => {
-	// 	let [entry] = entries
+		// Loop through the list, doing this `forEach` one.
+		showcolorBlocks.forEach((block) => {
+		let sectionObserver = new IntersectionObserver((entries) => {
+		let [entry] = entries
 
-	// 	if (entry.isIntersecting) {
-	// 		block.classList.add(showcolorClass)
-	// 	} else {
-	// 		block.classList.remove(showcolorClass)
-	// 	}
-	// })
+		if (entry.isIntersecting) {
+			block.classList.add(showcolorClass)
+		} else {
+			block.classList.remove(showcolorClass)
+		}}, {
+			rootMargin: '-33% 0% -33% 0%', // CSS-ish: top/right/bottom/left.
+		})
 
-	// sectionObserver.observe(block) // Watch each one!
-	// })
+		sectionObserver.observe(block) // Watch each one!
+		})
 
 		// Also display the owner and collaborators:
 		let channelUsers = document.querySelector('#channel-users') // Show them together
