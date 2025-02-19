@@ -38,7 +38,7 @@ let renderBlock = (block) => {
 	let audioBlocks = document.querySelector('#audio-blocks')
 	let linkBlocks = document.querySelector('#link-blocks')
 
-	console.log(block)
+	console.log(block.class)
 
 	// Links!
 	if (block.class == 'Link') {
@@ -99,16 +99,16 @@ let renderBlock = (block) => {
 
 	// Uploaded (not linked) media…
 	else if (block.class == 'Attachment') {
-
 		let attachment = block.attachment.content_type // Save us some repetition
-
+		
 		// Uploaded videos!
 		if (attachment.includes('video')) {
+
 			// …still up to you, but we’ll give you the `video` element:
 			let videoItem =
-				
 				`
 				<li class="video-blocks">
+					<p> < ${block.title} ></p>
 					<video controls src="${ block.attachment.url }"></video>
 				</li>
 				`
@@ -163,6 +163,7 @@ let renderBlock = (block) => {
 			
 				`
 				<li class="video-blocks">
+					<p>< ${block.title}></p>
 					${ block.embed.html }
 				</li>
 				`

@@ -216,6 +216,19 @@ section:has(#video-blocks){
 	scroll-snap-type: x mandatory;
 }
 
+.video-blocks{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: calc(0.2*var(--gutter-size));
+}
+
+#video-blocks p{
+	font-family: var(--heading-font);
+	text-transform: uppercase;
+	color: var(--color--background);
+}
+
 .video-blocks video{
 	height: calc(3*var(--block-size));
 	aspect-ratio: 16/9;
