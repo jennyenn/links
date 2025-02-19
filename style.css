@@ -147,7 +147,7 @@ a:hover{
 }
 
 
-img:hover{
+section:nth-of-type(2) img:hover{
 	cursor: url(assets/cursor.png), auto;
 
 	/* how to set image as cursor upon hover: https://dev.to/enjeck/set-image-as-cursor-upon-hover-3nbh */
