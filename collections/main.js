@@ -63,11 +63,18 @@ let renderBlock = (block) => {
 
 	// Images!
 	else if (block.class == 'Image') {
+		console.log(block)
 
 		let imageItem = 
-		
 		`
+		<div class = "image-blocks">
 			<img src="${block.image.original.url}">
+			<figcaption>
+				<p>${block.title}</p>
+				<p>${block.description}</p>
+			</figcaption>
+		</div>
+		
 		`;
 
 		imageBlocks.insertAdjacentHTML('beforeend', imageItem);;
@@ -135,7 +142,7 @@ let renderBlock = (block) => {
 			let audioItem =
 
 				`
-				<li class="blocks">
+				<li>
 					<p> ${ block.title }</p>
 					<audio controls src="${ block.attachment.url }" ></audio>
 				</li>
@@ -208,6 +215,21 @@ fetch(`https://api.are.na/v2/channels/${channelSlug}?per=100`, { cache: 'no-stor
 			// console.log(block) // The data for a single block
 			renderBlock(block) // Pass the single block data to the render function
 		})
+
+		// let imagehover = document.querySelectorAll('.image-blocks');
+		// imagehover.forEach((imageHover) => {
+		// 	let figure = imageHover.querySelector('figure');
+
+		// 	imageHover.addEventListener("mouseenter", () => {
+		// 		figure.classList.add('display');
+		// 	});
+
+		// 	imageHover.addEventListener("mouseleave", () => {
+		// 		figure.classList.remove('display');
+		// 	});
+
+		// // mouseenter and leave: https://developer.mozilla.org/en-US/docs/Web/API/Element/mouseenter_event
+		// })
 
 		// Also display the owner and collaborators:
 		let channelUsers = document.querySelector('#channel-users') // Show them together
