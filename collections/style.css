@@ -228,11 +228,13 @@ section:has(#video-blocks){
 	filter: grayscale(100%);
 }
 
-.video-blocks:hover video, iframe{
+.video-blocks:hover video{
 	filter: grayscale(0%);
 }
 
-
+.video-blocks:hover iframe{
+	filter: grayscale(0%);
+}
 
 /* text *//* text *//* text */
 
