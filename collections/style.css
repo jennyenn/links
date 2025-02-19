@@ -139,6 +139,7 @@ section:has(#image-blocks){
 	object-fit: cover;
 	animation: scroll 10s linear infinite;
 	overflow-x: visible;
+	position: relative;
 }
 
 .image-blocks img{
@@ -165,18 +166,24 @@ section:has(#image-blocks){
 }
 
 figcaption{
-	width: 100%;
+	width: 100vw;
 	position: relative;
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
-	gap: var(--gutter-size);
+	gap: calc(2*var(--gutter-size));	
+	position: absolute;
+	bottom: calc(-2*var(--gutter-size));
+	left: var(--gutter-size);
 }
 
 figcaption p{
-	position: absolute;
-	bottom: calc(-1*var(--gutter-size));
-	left: var(--gutter-size);
+	font-size: calc(2*var(--base-size));
+	color: var(--color--darkgreen);
+}
+
+figcaption p:nth-child(1){
+	font-family: var(--heading-font);
 }
 
 .image-blocks figcaption{
