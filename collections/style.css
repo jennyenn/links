@@ -135,6 +135,7 @@ section:has(#image-blocks){
 
 .image-blocks{
 	width: calc(4*var(--block-size));
+	height: calc(4*var(--block-size));
 	aspect-ratio: 1/1;
 	object-fit: cover;
 	animation: scroll 10s linear infinite;
@@ -173,7 +174,7 @@ figcaption{
 	flex-wrap: wrap;
 	gap: calc(2*var(--gutter-size));	
 	position: absolute;
-	bottom: calc(-2*var(--gutter-size));
+	bottom: calc(-4*var(--gutter-size));
 	left: var(--gutter-size);
 }
 
