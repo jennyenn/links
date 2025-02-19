@@ -131,7 +131,7 @@ section:has(#image-blocks){
 	overflow-x: auto;
 	margin-top: calc(3*var(--gutter-size));
 	padding-left: 0px;
-	animation: scroll 30s linear infinite;
+	animation: scroll 40s linear infinite;
 	overflow-x: visible;
 }
 
@@ -142,7 +142,7 @@ section:has(#image-blocks){
 
 .image-blocks{
 	width: calc(4*var(--block-size));
-	/* height: calc(4*var(--block-size)); */
+	height: calc(4*var(--block-size));
 	aspect-ratio: 1/1;
 	object-fit: cover;
 	position: relative;
@@ -178,18 +178,20 @@ figcaption{
 	flex-direction: row;
 	flex-wrap: wrap;
 	gap: calc(2*var(--gutter-size));
-	bottom: calc(-3*var(--gutter-size));
-	left: calc(1*var(--gutter-size));
+	bottom: calc(-5*var(--gutter-size));
+	left: calc(var(--gutter-size));
 	z-index: 2;
 }
 
-figcaption p{
+figcaption p:nth-child(1){
 	font-size: calc(2*var(--base-size));
+	font-family: var(--heading-font);
 	color: var(--color--darkgreen);
 }
 
-figcaption p:nth-child(1){
-	font-family: var(--heading-font);
+figcaption p:nth-child(2){
+	font-size: calc(1*var(--base-size));
+	color: var(--color--black);
 }
 
 .image-blocks figcaption{
@@ -378,6 +380,11 @@ section:has(#link-blocks){
 	.image-blocks{
 		width:  var(--block-size);
 		height:  var(--block-size);
+	}
+
+	figcaption{
+		bottom: calc(-2*var(--gutter-size));
+		left: calc(var(--gutter-size));
 	}
 
 	/* video  *//* video  *//* video  */
