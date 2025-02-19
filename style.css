@@ -110,6 +110,15 @@ p{
 	bottom: var(--gutter-size);
 }
 
+section:nth-of-type(1) img{
+	position: absolute;
+	right: calc(4.5*var(--gutter-size));
+	top: calc(5.2*var(--gutter-size));
+	filter: opacity(0.8);
+	z-index:-1;
+}
+
+
 section:nth-of-type(2){
 	position: relative;
 	width: 100vw;
@@ -197,12 +206,21 @@ img:hover{
 		transform: none;
 	}
 
+	section:nth-of-type(1) img{
+		position: absolute;
+		left: calc(7*var(--gutter-size));
+		bottom: calc(5.2*var(--gutter-size));
+		filter: opacity(1);
+		scale: 1.2;
+		z-index:-1;
+	}
+
 	section:nth-of-type(2){
 		min-width: 100vw;
 		height: 100vh;
 	}
 
-	img{
+	section:nth-of-type(2) img{
 		position: absolute;
 		right: var(--gutter-size);
 		top: var(--gutter-size);
