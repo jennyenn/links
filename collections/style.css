@@ -123,7 +123,6 @@ section:has(#image-blocks){
 }
 
 #image-blocks{
-	height: 100vh;
 	display: flex;
 	flex-direction: row;
 	flex-wrap: nowrap;
@@ -173,7 +172,7 @@ section:has(#image-blocks){
 
 figcaption{
 	width: 50vw;
-	position: absolute;
+	position: fixed;
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;

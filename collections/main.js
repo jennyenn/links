@@ -31,7 +31,7 @@ let channelSlug = 'women-in-soccer' // The “slug” is just the end of the URL
 let renderBlock = (block) => {
 	
 	// To start, a shared `ul` where we’ll insert all our blocks
-	let channelBlocks = document.querySelector('#channel-blocks')
+	// let channelBlocks = document.querySelector('#channel-blocks')
 	let imageBlocks = document.querySelector('#image-blocks')
 	let videoBlocks = document.querySelector('#video-blocks')
 	let textBlocks = document.querySelector('#text-blocks')
@@ -67,9 +67,9 @@ let renderBlock = (block) => {
 
 		let imageItem = 
 		`
-		<figure class = "image-blocks">
+		<figure class="image-blocks">
 			<img src="${block.image.original.url}">
-			<figcaption>
+			<figcaption class="words" >
 				<p>${block.title}</p>
 				<p>${block.description}</p>
 			</figcaption>
@@ -219,23 +219,7 @@ fetch(`https://api.are.na/v2/channels/${channelSlug}?per=100`, { cache: 'no-stor
 			renderBlock(block) // Pass the single block data to the render function
 		})
 
-		// let imagehover = document.querySelectorAll('.image-blocks');
-		// imagehover.forEach((imageHover) => {
-		// 	let figure = imageHover.querySelector('figure');
-
-		// 	imageHover.addEventListener("mouseenter", () => {
-		// 		figure.classList.add('display');
-		// 	});
-
-		// 	imageHover.addEventListener("mouseleave", () => {
-		// 		figure.classList.remove('display');
-		// 	});
-
-		// // mouseenter and leave: https://developer.mozilla.org/en-US/docs/Web/API/Element/mouseenter_event
-		// })
-
-
-		// videp blur
+		// video blur IntersectionObserver
 
 		let notblurvideoClass = 'notblur' // Variables again.
 		let notblurvideoBlocks = document.querySelectorAll('.video-blocks') // Get all of them.
@@ -257,7 +241,7 @@ fetch(`https://api.are.na/v2/channels/${channelSlug}?per=100`, { cache: 'no-stor
 		})
 
 
-		// links blur
+		// links blur IntersectionObserver
 
 		let notblurlinkClass = 'notblur' // Variables again.
 		let notblurlinkBlocks = document.querySelectorAll('.link-blocks') // Get all of them.
@@ -277,6 +261,9 @@ fetch(`https://api.are.na/v2/channels/${channelSlug}?per=100`, { cache: 'no-stor
 
 		sectionObserver.observe(block) // Watch each one!
 		})
+		
+		const words = document.querySelectorAll(".words");
+		words.scrollIntoView({behavior:"instant"});
 
 		// Also display the owner and collaborators:
 		let channelUsers = document.querySelector('#channel-users') // Show them together
