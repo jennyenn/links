@@ -121,7 +121,7 @@ p{
 
 section:has(#image-blocks){
 	margin: 0px;
-	height: 100vh;
+	height: 95vh;
 	width: 100vw;
 }
 
@@ -419,12 +419,14 @@ section:has(#link-blocks){
 	}
 
 	#video-blocks{
-		flex-direction: row;
 		gap: calc(0.2*var(--gutter-size));
 		overflow-x: auto;
-		padding-inline: calc(4*var(--gutter-size));
+		padding-inline: calc(3*var(--gutter-size));
 		padding-block: 0px;
-		scroll-snap-type: x mandatory;
+	}
+
+	.video-blocks{
+		gap: calc(0.5*var(--gutter-size));
 	}
 	
 	#video-blocks video{
@@ -436,6 +438,10 @@ section:has(#link-blocks){
 		width: 70vw;
 		aspect-ratio: 16/9;
 	}	
+
+	aside{
+		font-size: calc(1*var(--base-size));
+	}
 
 	/* text  *//* text  *//* text  */
 
