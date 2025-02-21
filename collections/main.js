@@ -84,9 +84,8 @@ let renderBlock = (block) => {
 
 	// Text!
 	else if (block.class == 'Text') {
-		// …up to you!
+
 		let textItem = 
-		
 		`
 			<blockquote>
 				<p>${block.content}</p>
