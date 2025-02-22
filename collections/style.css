@@ -463,6 +463,7 @@ section:has(#link-blocks){
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+	gap: var(--gutter-size);
 }
 
 #link-blocks{
@@ -662,6 +663,10 @@ section:has(#link-blocks){
 
 	.link-blocks iframe, .rich,.link-blocks picture img , .link-blocks .PDF{
 		width: calc(1.2*var(--block-size));
+	}
+
+	#link-blocks{
+		gap: calc(0.5*var(--gutter-size));
 	}
 
 }
