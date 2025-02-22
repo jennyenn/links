@@ -40,6 +40,7 @@ body{
 	overflow-x: hidden;
 	overflow-y: auto;
 	scroll-snap-type: y mandatory;
+	scroll-snap-type: x mandatory;
 }
 
 nav{
@@ -121,7 +122,7 @@ p{
 
 section:has(#image-blocks){
 	margin: 0px;
-	height: 95vh;
+	height: 98vh;
 	width: 100vw;
 }
 
@@ -282,19 +283,66 @@ aside{
 /* text *//* text *//* text */
 
 section:has(#text-blocks){
-	height: auto;
-	padding: calc(2*var(--gutter-size));
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
+#text-blocks{
+	height: 90vh;
 	display: flex;
 	flex-direction: row;
+	overflow-x: auto;
+	gap: calc(2*var(--gutter-size));
 }
+
 blockquote{
-	margin-bottom: calc(2*var(--gutter-size));
+	display: flex;
+	align-items: center;
+	padding: calc(2*var(--gutter-size));
 }
 
 blockquote p{
-	font-size: calc(2*var(--base-size));
+	width: 80vw;
+	height: auto;
+	font-size: calc(1.7*var(--base-size));
 	font-weight: 400;
 	color: #015A4F;
+}
+
+blockquote p.slidein{
+	animation: slideinfromtop 1s ease-in forwards; 
+}
+
+blockquote:nth-of-type(2) p.slidein{
+	animation: slideinfrombottom 1s ease-in forwards; 
+}
+
+@keyframes slideinfromtop {
+	0% {
+		transform: translateY(40%);
+		opacity: 0;
+	}
+	100% {
+		transform: translateY(0%);
+		opacity: 1;
+	}
+}
+
+@keyframes slideinfrombottom {
+	0% {
+		transform: translateY(-40%);
+		opacity: 0;
+	}
+	100% {
+		transform: translateY(0%);
+		opacity: 1;
+	}
+}
+
+section:nth-of-type(3) aside{
+	color: var(--color--darkgreen);
 }
 
 /* audio *//* audio *//* audio */
@@ -445,13 +493,13 @@ section:has(#link-blocks){
 
 	/* text  *//* text  *//* text  */
 
-	section:has(#text-blocks){
-		padding: calc(2*var(--gutter-size));
+	#text-blocks{
+		gap: calc(1*var(--gutter-size));
 	}
 
 	blockquote{
-		width: 75%;
-		margin-bottom: calc(3*var(--gutter-size));
+		width: 100%;
+		padding: calc(3*var(--gutter-size));
 	}
 
 	blockquote:nth-child(2){
@@ -459,7 +507,8 @@ section:has(#link-blocks){
 	}
 
 	blockquote p{
-		font-size: calc(3*var(--base-size));
+		width: 100vw;
+		font-size: calc(2.5*var(--base-size));
 	}
 
 	/* audio *//* audio *//* audio */

@@ -219,6 +219,7 @@ fetch(`https://api.are.na/v2/channels/${channelSlug}?per=100`, { cache: 'no-stor
 		})
 
 		// video blur IntersectionObserver
+		// actually it will change the opacity, but i haven't edit the class name lol
 
 		let notblurvideoClass = 'notblur' // Variables again.
 		let notblurvideoBlocks = document.querySelectorAll('.video-blocks') // Get all of them.
@@ -233,7 +234,7 @@ fetch(`https://api.are.na/v2/channels/${channelSlug}?per=100`, { cache: 'no-stor
 		} else {
 			block.classList.remove(notblurvideoClass)
 		}}, {
-			rootMargin: '0% -33% 0% -33% ', // CSS-ish: top/right/bottom/left.
+			rootMargin: '0% 10% 0% 10% ', // CSS-ish: top/right/bottom/left.
 		})
 
 		sectionObserver.observe(block) // Watch each one!
@@ -241,6 +242,7 @@ fetch(`https://api.are.na/v2/channels/${channelSlug}?per=100`, { cache: 'no-stor
 
 
 		// links blur IntersectionObserver
+		// actually it will change the opacity, but i haven't edit the class name lol
 
 		let notblurlinkClass = 'notblur' // Variables again.
 		let notblurlinkBlocks = document.querySelectorAll('.link-blocks') // Get all of them.
@@ -260,6 +262,29 @@ fetch(`https://api.are.na/v2/channels/${channelSlug}?per=100`, { cache: 'no-stor
 
 		sectionObserver.observe(block) // Watch each one!
 		})
+
+
+		// slide in effect on text-block
+
+		let slideinClass = 'slidein' // Variables again.
+		let slideinBlocks = document.querySelectorAll('blockquote p') // Get all of them.
+
+		// Loop through the list, doing this `forEach` one.
+		slideinBlocks.forEach((block) => {
+		let sectionObserver = new IntersectionObserver((entries) => {
+		let [entry] = entries
+
+		if (entry.isIntersecting) {
+			block.classList.add(slideinClass)
+		} else {
+			block.classList.remove(slideinClass)
+		}}, {
+			rootMargin: '-33%  0%  -33% 0% ', // CSS-ish: top/right/bottom/left.
+		})
+
+		sectionObserver.observe(block) // Watch each one!
+		})
+
 		
 		const words = document.querySelectorAll(".words");
 		words.scrollIntoView({behavior:"instant"});
