@@ -216,6 +216,12 @@ fetch(`https://api.are.na/v2/channels/${channelSlug}?per=100`, { cache: 'no-stor
 			renderBlock(block) // Pass the single block data to the render function
 		})
 
+		// display figcaption
+
+		let displayClass = 'display' // Variables again.
+		let displayBlocks = document.querySelectorAll('.image-blocks') // Get all of them.
+
+
 		// video blur IntersectionObserver
 		// actually it will change the opacity, but i haven't edit the class name lol
 
@@ -295,7 +301,9 @@ fetch(`https://api.are.na/v2/channels/${channelSlug}?per=100`, { cache: 'no-stor
 			button.onclick = () => { audio.play() }
 		})
 
-		// This is the same as before, setting up variables.
+
+		// click button and open the menu
+
 		let button = document.querySelector('#navbutton')
 		let modal = document.querySelector('#menu') // Now one for our `dialog`.
 		let closeButton = modal.querySelector('.close') // Only looking within `modal`.
@@ -314,9 +322,6 @@ fetch(`https://api.are.na/v2/channels/${channelSlug}?per=100`, { cache: 'no-stor
 			}
 		}
 
-
-		const words = document.querySelectorAll(".words");
-		words.scrollIntoView({behavior:"instant"});
 
 		// Also display the owner and collaborators:
 		let channelUsers = document.querySelector('#channel-users') // Show them together
