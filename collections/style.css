@@ -347,49 +347,48 @@ section:nth-of-type(3) aside{
 
 /* audio *//* audio *//* audio */
 
+
 section:has(#audio-blocks){
-	background-color: var(--color--darkgreen);
-	display: flex;
+	width: 100vw;
 	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	background-color: var(--color--darkgreen);
 }
 
 #audio-blocks{
+	height: 90vh;
 	display: flex;
 	flex-direction: row;
 	overflow-x: auto;
-	align-items: center;
-	justify-content: center;
-	margin: auto;
-	padding: calc(1*var(--gutter-size));
+	scroll-snap-type: x mandatory; 
+	gap: calc(1*var(--gutter-size));	
 }
 
 #audio-blocks li{
 	display: flex;
 	flex-direction: column;
-	gap: calc(0.2*var(--gutter-size));
 	align-items: center;
-	width: 12vw;
+	justify-content: center;
+	gap: calc(1*var(--gutter-size));	
 }
 
 #audio-blocks p{
+	width: 100vw;
+	text-align: center;
 	color: var(--color--background);
 }
 
-audio{
-	margin-bottom: var(--gutter-size);
-}
-
 #audio-blocks img{
-	width: 20vw;
-	height: 20vh;
+	width: 80vw;
+	object-fit: contain;
+	filter: grayscale(100%);	
 }
 
 #audio-blocks img:hover{
-	filter: opacity(100%);
 	cursor: pointer;
 	animation: rotate 3s linear infinite;
 }
-
 
 @keyframes rotate {
     from {
@@ -398,6 +397,10 @@ audio{
     to {
         transform: rotate(360deg);
     }
+}
+
+section:nth-of-type(4) aside{
+	color: var(--color--background);
 }
 
 /* links *//* links *//* links */
@@ -418,7 +421,7 @@ section:has(#link-blocks){
 	background-color: var(--color--black);
 }
 
-.link-blocks iframe,.rich ,img, .PDF{
+.link-blocks iframe,.rich ,.link-blocks  img, .PDF{
 	object-fit: cover;
 	overflow-x: hidden;
 	width: 100%;
@@ -549,6 +552,30 @@ section:has(#link-blocks){
 		height: 5vh;
 		margin-bottom: 0px;
 	} */
+
+	#audio-blocks{
+		gap: 0px;
+		align-items: center;
+		justify-content: center;
+		width: 100vw;
+	}
+
+	#audio-blocks li{
+		display: flex;
+		flex-direction: column;
+		gap: calc(0.2*var(--gutter-size));
+		align-items: center;
+		width: 14vw;
+	}
+
+	#audio-blocks img{
+		object-fit: cover;
+		filter: grayscale(100%) opacity(50%);	
+	}
+
+	#audio-blocks img:hover{
+		filter: opacity(100%);
+	}
 
 	/* links *//* links *//* links */
 
