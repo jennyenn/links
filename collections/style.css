@@ -152,6 +152,9 @@ section:has(#image-blocks){
 }
 
 .image-blocks img{
+	aspect-ratio: 1/1;
+	object-fit: cover;
+	overflow: hidden;
 	filter: grayscale(100%);
 	/* https://developer.mozilla.org/en-US/docs/Web/CSS/filter-function/grayscale */
 }
