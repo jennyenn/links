@@ -51,27 +51,43 @@ body{
 }
 
 #menu{
+	position: fixed;
+	top: 0px;
+	bottom: 0px;
 	background-color: var(--color--black);
 	color: var(--color--background);
 	inset: 0;
 	place-content: center; /* Center the tracks. */
 	place-items: center; /* Center within the tracks. */
+
+	animation: slideinfrombottom 500ms forwards; 
 }
 
-.close{
+.close button {
 	font-family: var(--context-font);
-	font-size: calc(1.8*var(--base-size));
+	font-size: calc(1.5*var(--base-size));
 	position: absolute;
 	right: var(--gutter-size);
 	top: var(--gutter-size);
-	display: flex;
-	align-items: center;
 }
 
 nav ul{
 	display: flex;
+	flex-direction: column;
 	gap: var(--gutter-size);
 	justify-content: center;
+}
+
+nav ul li p{
+	font-size: calc(2*var(--base-size));
+	text-transform: uppercase;
+	font-weight: 400;
+}
+
+nav ul li p:hover{
+	color: var(--color--darkgreen);
+	text-decoration: underline;
+	cursor: pointer;
 }
 
 main{
@@ -101,8 +117,6 @@ p{
 	font-weight: 200;
 }
 
-
- 
 /* .marquee{
 	width: 100vw;
 	margin-top: 0px;
@@ -218,6 +232,7 @@ figcaption p:nth-child(1){
 	font-size: calc(2*var(--base-size));
 	font-family: var(--heading-font);
 	color: var(--color--darkgreen);
+	font-weight: 500;
 }
 
 figcaption p:nth-child(2){
@@ -502,6 +517,10 @@ section:has(#link-blocks){
 		font-size: calc(3*var(--base-size));
 	}
 
+	nav ul{
+		display: flex;
+		flex-direction: row;
+	}
 		
 	/* how to set image as cursor upon hover: https://dev.to/enjeck/set-image-as-cursor-upon-hover-3nbh */
 	/* cursor: url(images/cursor.png), auto; */
