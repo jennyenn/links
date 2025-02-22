@@ -412,24 +412,35 @@ section:nth-of-type(4) aside{
 
 section:has(#link-blocks){
 	width: 100vw;
-	height: auto;
-	padding: calc(1*var(--gutter-size));
+	height: 100vh;
+	overflow-y: hidden;
+	overflow-x: auto;
+	background-color: var(--color--black);
+	margin: 0px;
+	padding-block: calc(1*var(--gutter-size));
 }
 
 #link-blocks{
 	display: flex;
-	flex-direction: column;
-	gap: var(--gutter-size);
+	flex-direction: row;
+	flex-wrap: nowrap;
+	overflow-x: auto;
+	gap: calc(1*var(--gutter-size));
+	scroll-snap-type: x mandatory;
+	width: 100vw;
 }
 
-.link-blocks{
-	background-color: var(--color--black);
+.link-blocks {
+	width: 100vw;
 }
 
-.link-blocks iframe,.rich ,.link-blocks  img, .PDF{
-	object-fit: cover;
-	overflow-x: hidden;
+.link-blocks picture{
 	width: 100%;
+}
+
+.link-blocks iframe,.link-blocks img, .rich , .link-blocks .PDF{
+	object-fit: cover;
+	width: 100vw;
 	aspect-ratio: 3/4;
 	filter: grayscale(100%) opacity(50%);	
 }
@@ -593,16 +604,8 @@ section:has(#link-blocks){
 
 	/* links *//* links *//* links */
 
-	#link-blocks{
-		display: flex;
-		flex-direction: row;
-		flex-wrap: wrap;
-		gap: calc(1*var(--gutter-size));
-		justify-content: center;
-	}
-
-	.link-blocks iframe, .rich,.link-blocks img , .link-blocks .PDF{
+	/* .link-blocks iframe, .rich,.link-blocks picutre img , .link-blocks .PDF{
 		width: calc(1.2*var(--block-size));
-	}
+	} */
 
 }

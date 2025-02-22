@@ -295,13 +295,13 @@ fetch(`https://api.are.na/v2/channels/${channelSlug}?per=100`, { cache: 'no-stor
 		}
 
 
-		// let rotateClass = 'rotate' // “Strings” (like a class name) are wrapped in quotes.
-		// let rotateBlock = document.querySelector('#audio-blocks img:hover') // Any selector.
-		// let soccerButton = document.querySelector('.soccerButton img')
+		let rotateClass = 'rotate' // “Strings” (like a class name) are wrapped in quotes.
+		let rotateBlock = document.querySelector('#audio-blocks img:hover') // Any selector.
+		let soccerButton = document.querySelector('.soccerButton img')
 
-		// soccerButton.onclick = () => { // “Listen” for clicks.
-		// 	rotateBlock.classList.toggle(rotateClass) // Toggle the class!
-		// }
+		soccerButton.onclick = () => { // “Listen” for clicks.
+			rotateBlock.classList.toggle(rotateClass) // Toggle the class!
+		}
 
 
 
