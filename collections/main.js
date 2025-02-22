@@ -222,6 +222,8 @@ fetch(`https://api.are.na/v2/channels/${channelSlug}?per=100`, { cache: 'no-stor
 		let displayBlocks = document.querySelectorAll('.image-blocks') // Get all of them.
 
 
+
+
 		// video blur IntersectionObserver
 		// actually it will change the opacity, but i haven't edit the class name lol
 
