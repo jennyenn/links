@@ -286,23 +286,33 @@ fetch(`https://api.are.na/v2/channels/${channelSlug}?per=100`, { cache: 'no-stor
 
 		// play audio when press soccer image
 
-		
-		let soccerButtom = document.querySelectorAll('.soccerbuttom img')
-		let audio = document.querySelectorAll('audio')
+		let soccerButtom = document.querySelectorAll('.soccerbuttom')
 
-		soccerButtom.onclick = () => {
-			audio.play();
+		soccerButtom.forEach((button) => {
+
+			let audio = button.querySelector('audio') // Inside of each button.
+
+			button.onclick = () => { audio.play() }
+		})
+
+		// This is the same as before, setting up variables.
+		let button = document.querySelector('#navbutton')
+		let modal = document.querySelector('#menu') // Now one for our `dialog`.
+		let closeButton = modal.querySelector('.close') // Only looking within `modal`.
+
+		button.onclick = () => { // “Listen” for clicks.
+			modal.showModal() // This opens it up.
 		}
 
-
-		let rotateClass = 'rotate' // “Strings” (like a class name) are wrapped in quotes.
-		let rotateBlock = document.querySelector('#audio-blocks img:hover') // Any selector.
-		let soccerButton = document.querySelector('.soccerButton img')
-
-		soccerButton.onclick = () => { // “Listen” for clicks.
-			rotateBlock.classList.toggle(rotateClass) // Toggle the class!
+		closeButton.onclick = () => {
+			modal.close() // And this closes it!
 		}
 
+		modal.onclick = (event) => { // Listen on our `modal` also…
+			if (event.target == modal) { // Only if clicks are to itself (the background).
+				modal.close() // Close it then too.
+			}
+		}
 
 
 		const words = document.querySelectorAll(".words");
