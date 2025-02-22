@@ -136,15 +136,14 @@ let renderBlock = (block) => {
 
 		// Uploaded audio!
 		else if (attachment.includes('audio')) {
-			
-			console.log(block)
 
 			// …still up to you, but here’s an `audio` element:
 			let audioItem =
 
 				`
-				<li>
+				<li class="soccerbuttom">
 					<p> ${ block.title }</p>
+					<img src="../assets/soccer1.png">
 					<audio controls src="${ block.attachment.url }" ></audio>
 				</li>
 				`
@@ -191,7 +190,6 @@ let renderBlock = (block) => {
 
 	}
 }
-
 
 // It‘s always good to credit your work:
 // let renderUser = (user, container) => { // You can have multiple arguments for a function!
@@ -285,7 +283,28 @@ fetch(`https://api.are.na/v2/channels/${channelSlug}?per=100`, { cache: 'no-stor
 		sectionObserver.observe(block) // Watch each one!
 		})
 
+
+		// play audio when press soccer image
+
 		
+		let soccerButtom = document.querySelectorAll('.soccerbuttom img')
+		let audio = document.querySelectorAll('audio')
+
+		soccerButtom.onclick = () => {
+			audio.play();
+		}
+
+
+		// let rotateClass = 'rotate' // “Strings” (like a class name) are wrapped in quotes.
+		// let rotateBlock = document.querySelector('#audio-blocks img:hover') // Any selector.
+		// let soccerButton = document.querySelector('.soccerButton img')
+
+		// soccerButton.onclick = () => { // “Listen” for clicks.
+		// 	rotateBlock.classList.toggle(rotateClass) // Toggle the class!
+		// }
+
+
+
 		const words = document.querySelectorAll(".words");
 		words.scrollIntoView({behavior:"instant"});
 

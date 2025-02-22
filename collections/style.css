@@ -350,13 +350,25 @@ section:nth-of-type(3) aside{
 section:has(#audio-blocks){
 	background-color: var(--color--darkgreen);
 	display: flex;
-	height: 120vh;
+	height: 100vh;
 }
 
 #audio-blocks{
-	align-content: center;
+	display: flex;
+	flex-direction: row;
+	overflow-x: auto;
+	align-items: center;
+	justify-content: center;
 	margin: auto;
-	padding: calc(2*var(--gutter-size));
+	padding: calc(1*var(--gutter-size));
+}
+
+#audio-blocks li{
+	display: flex;
+	flex-direction: column;
+	gap: calc(0.2*var(--gutter-size));
+	align-items: center;
+	width: 12vw;
 }
 
 #audio-blocks p{
@@ -364,9 +376,28 @@ section:has(#audio-blocks){
 }
 
 audio{
-	width: 60vw;
-	height: 5vh;
 	margin-bottom: var(--gutter-size);
+}
+
+#audio-blocks img{
+	width: 20vw;
+	height: 20vh;
+}
+
+#audio-blocks img:hover{
+	filter: opacity(100%);
+	cursor: pointer;
+	animation: rotate 3s linear infinite;
+}
+
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 /* links *//* links *//* links */
@@ -512,12 +543,12 @@ section:has(#link-blocks){
 	}
 
 	/* audio *//* audio *//* audio */
-
+/* 
 	audio{
 		width: 60vw;
 		height: 5vh;
 		margin-bottom: 0px;
-	}
+	} */
 
 	/* links *//* links *//* links */
 
