@@ -115,7 +115,7 @@ p{
 	right: calc(0.2*var(--gutter-size));
 	top: calc(4*var(--gutter-size));
 	filter: opacity(0.8);
-	scale: 1;
+	scale: 0.8;
 	z-index:-1;
 }
 
@@ -257,8 +257,8 @@ section:nth-of-type(2) img:hover{
 		position: absolute;
 		top:  var(--gutter-size) ;
 		right: var(--gutter-size);
+		left: auto;
 	}
-
 
 	.desktoppic{
 		display: block;

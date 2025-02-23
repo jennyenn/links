@@ -33,25 +33,44 @@ let placeChannelInfo = (data) => {
 // 2. soccer.style.transform: target the soccer element and style it.
 
 window.addEventListener('scroll',() => {
+
+	// for desktop
 	const scrollX = window.pageXOffset;
 	const soccer = document.querySelector('#soccer img')
-	const scrollY = scrollX/3;
+	const scrollYPosition = scrollX/3;
 	const soccerTop = soccer.offsetTop;
 	const soccerHeight = soccer.offsetHeight;  
 	// height of the soccer: https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/offsetHeight
 	const windowHeight = window.innerHeight; 
 	// height of the screen: https://developer.mozilla.org/en-US/docs/Web/API/Window/innerHeight
 
-	const soccerbottom = soccerTop+scrollY+soccerHeight;
+	const soccerbottom = soccerTop+scrollYPosition+soccerHeight;
 	const rebound =soccerbottom - windowHeight ;
 	
 	if(soccerbottom >= windowHeight){
 		soccer.style.transform = `translateX(${scrollX}px) translateY(-${rebound}px)`;
 	}else{
-		soccer.style.transform = `translateX(${scrollX}px) translateY(${scrollY}px)`;
+		soccer.style.transform = `translateX(${scrollX}px) translateY(${scrollYPosition}px)`;
 	}
 })
 
+window.addEventListener('scroll',() => {
+	// for mobile
+	const scrollY = window.pageYOffset;
+	const soccer = document.querySelector('#soccer img')
+	const scrollXPosition = scrollY/2.7;
+
+	console.log('scrollY:', scrollY);
+
+	if(scrollY>0){
+		soccer.style.transform = `translateX(-${scrollXPosition}px) translateY(${scrollY*1.55}px)`;
+	}
+})
+
+// console.log('scrollY:', scrollY);
+// if(scrollY>0){
+// 	soccer.style.transform = `translateY(${scrollY}px)`;
+// }
 
 // Then our big function for specific-block-type rendering:
 // let renderBlock = (block) => {
