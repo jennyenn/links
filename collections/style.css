@@ -480,14 +480,13 @@ section:has(#link-blocks){
 
 .link-blocks{
 	position: relative;
-	height: 70vh;
 }
 
 .link-blocks img , .link-blocks .PDF{
 	object-fit: cover;
 	max-width: 80vw;
 	height: 70vh;
-	/* aspect-ratio: 3/4; */
+	aspect-ratio: 3/4;
 	overflow: hidden;
 	filter: grayscale(100%) opacity(20%);	
 }
@@ -500,11 +499,12 @@ section:has(#link-blocks){
 }
 
 .link-blocks.rich{
-	width: 80vw;
 	height: 70vh;
 	aspect-ratio: 3/4;
 	filter: grayscale(100%) opacity(100%);	
 }
+
+/* normal link img*/
 
 .linkoverlay{
 	position: absolute;
@@ -539,6 +539,41 @@ section:has(#link-blocks){
 	margin: calc(0.3*var(--gutter-size));
 }
 
+/* behance and pdf linkoverlay */
+/* don't know why .linkoverlay doesn't work on these two, so I crerated another class*/
+
+.linkoverlay2{
+	position: absolute;
+	top:0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	color: var(--color--background);
+}
+
+.linkoverlay2 h3{
+	font-family: var(--heading-font);
+	font-size: calc(1.2*var(--base-size));
+	position: absolute;
+	width: 70%;
+	top:0;
+	left: 0;
+	margin: calc(0.3*var(--gutter-size));
+}
+
+.linkoverlay2 p:has(a){
+	position: absolute;
+	top:0;
+	right: 0;
+	margin: calc(0.3*var(--gutter-size));
+}
+
+.linkoverlay2 p:nth-of-type(1){
+	position: absolute;
+	bottom:0;
+	left: 0;
+	margin: calc(0.3*var(--gutter-size));
+}
 
 /* change blur to opacity */
 /* 

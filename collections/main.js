@@ -123,7 +123,7 @@ let renderBlock = (block) => {
 				`
 				<li class="link-blocks">
 					<embed src="${ block.attachment.url }" class="PDF"> 
-					<div class="linkoverlay">
+					<div class="linkoverlay2">
 						<h3>${block.title}</h3>
 						<p>${block.description_html}</p>
 						<p><a href="${ block.source.url }">↗</a></p>
@@ -185,7 +185,7 @@ let renderBlock = (block) => {
 			`
 			<li  class="link-blocks rich">
 					${ block.embed.html }
-				<div class="linkoverlay">
+				<div class="linkoverlay2">
 					<h3>${block.title}</h3>
 					<p>${block.description_html}</p>
 					<p><a href="${ block.source.url }">↗</a></p>
