@@ -482,20 +482,14 @@ section:has(#link-blocks){
 	position: relative;
 }
 
-.link-blocks img , .link-blocks .PDF{
+.link-blocks img , .link-blocks .PDF, 
+.link-blocks iframe{
 	object-fit: cover;
 	max-width: 80vw;
 	height: 70vh;
 	aspect-ratio: 3/4;
 	overflow: hidden;
-	filter: grayscale(100%) opacity(20%);	
-}
-
-.link-blocks iframe{
-	width: 80vw;
-	height: 70vh;
-	aspect-ratio: 3/4;
-	filter: grayscale(100%) opacity(20%);	
+	filter: grayscale(100%) opacity(80%);	
 }
 
 .link-blocks.rich{
@@ -513,6 +507,7 @@ section:has(#link-blocks){
 	width: 100%;
 	height: 100%;
 	color: var(--color--background);
+	display: none;
 }
 
 .linkoverlay h3{
@@ -522,21 +517,18 @@ section:has(#link-blocks){
 	width: 70%;
 	top:0;
 	left: 0;
-	margin: calc(0.3*var(--gutter-size));
 }
 
 .linkoverlay p:nth-of-type(2){
 	position: absolute;
 	bottom:0;
 	left: 0;
-	margin: calc(0.3*var(--gutter-size));
 }
 
 .linkoverlay p:has(a) {
 	position: absolute;
 	top:0;
 	right: 0;
-	margin: calc(0.3*var(--gutter-size));
 }
 
 /* behance and pdf linkoverlay */
@@ -549,6 +541,7 @@ section:has(#link-blocks){
 	width: 100%;
 	height: 100%;
 	color: var(--color--background);
+	display: none;
 }
 
 .linkoverlay2 h3{
@@ -558,21 +551,42 @@ section:has(#link-blocks){
 	width: 70%;
 	top:0;
 	left: 0;
-	margin: calc(0.3*var(--gutter-size));
 }
 
 .linkoverlay2 p:has(a){
 	position: absolute;
 	top:0;
 	right: 0;
-	margin: calc(0.3*var(--gutter-size));
 }
 
 .linkoverlay2 p:nth-of-type(1){
 	position: absolute;
 	bottom:0;
 	left: 0;
-	margin: calc(0.3*var(--gutter-size));
+}
+
+
+.linkoverlay h3,
+.linkoverlay p:nth-of-type(2),
+.linkoverlay p:has(a),
+.linkoverlay2 h3,
+.linkoverlay2 p:has(a),
+.linkoverlay2 p:nth-of-type(1) {
+	margin: calc(1.2*var(--gutter-size));
+}
+
+
+/* hover image and display linkoverlay */
+.link-blocks:hover img ,
+.link-blocks:hover .PDF,
+.link-blocks:hover iframe,
+.link-blocks:hover .rich{
+	filter: grayscale(100%) opacity(20%);	
+}
+
+.link-blocks:hover .linkoverlay,
+.link-blocks:hover .linkoverlay2{
+	display: block;
 }
 
 /* change blur to opacity */
@@ -744,13 +758,31 @@ section:has(#link-blocks){
 	}
 
 	/* links *//* links *//* links */
+	
 
 	.link-blocks iframe, .rich,.link-blocks picture img , .link-blocks .PDF{
 		width: calc(1.2*var(--block-size));
+		height: 60vh;
+	}
+
+	.linkoverlay, .linkoverlay2{
+		height: 60vh;
 	}
 
 	#link-blocks{
-		gap: calc(0.5*var(--gutter-size));
+		gap: calc(0.3*var(--gutter-size));
+		margin-top: var(--gutter-size);
+		height: 60vh;
+		overflow-y: hidden;
+	}
+
+	.linkoverlay h3,
+	.linkoverlay p:nth-of-type(2),
+	.linkoverlay p:has(a),
+	.linkoverlay2 h3,
+	.linkoverlay2 p:has(a),
+	.linkoverlay2 p:nth-of-type(1) {
+		margin: calc(0.7*var(--gutter-size));
 	}
 
 	/* .rich ,
