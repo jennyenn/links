@@ -38,32 +38,32 @@ let renderBlock = (block) => {
 	let audioBlocks = document.querySelector('#audio-blocks')
 	let linkBlocks = document.querySelector('#link-blocks')
 
-	console.log(block.class)
-
 	// Links!
 	if (block.class == 'Link') {
+
+		console.log(block.title)
 
 		let linkItem =
 			`
 			<li class="link-blocks">
 				<picture>
-					<a href="${ block.source.url }">  <img src="${ block.image.original.url }"></a>
+					<img src="${ block.image.original.url }">
 					<source media="(max-width: 428px)" srcset="${ block.image.thumb.url }">
 					<source media="(max-width: 640px)" srcset="${ block.image.large.url }">
 				</picture>
+				<div class="linkoverlay">
+					<h3>${block.title}</h3>
+					<p>${block.description_html}</p>
+					<p><a href="${ block.source.url }">↗</a></p>
+				</div>
 			</li>
 			`
-			// put these in the hover part		
-			// <h3>${ block.title }</h3>
-			// ${ block.description_html }
-			// <p><a href="${ block.source.url }">See the original ↗</a></p> 
 
 			linkBlocks.insertAdjacentHTML('beforeend', linkItem)
 	}
 
 	// Images!
 	else if (block.class == 'Image') {
-		console.log(block)
 
 		let imageItem = 
 		`
@@ -123,6 +123,11 @@ let renderBlock = (block) => {
 				`
 				<li class="link-blocks">
 					<embed src="${ block.attachment.url }" class="PDF"> 
+					<div class="linkoverlay">
+						<h3>${block.title}</h3>
+						<p>${block.description_html}</p>
+						<p><a href="${ block.source.url }">↗</a></p>
+					</div>
 				</li>
 					
 				`
@@ -174,14 +179,17 @@ let renderBlock = (block) => {
 
 	// Linked audio!(Behance)
 	else if (embed.includes('rich')) {
-
-		console.log(block)
 	
 		let RichItem = 
 			
 			`
 			<li  class="link-blocks rich">
 					${ block.embed.html }
+				<div class="linkoverlay">
+					<h3>${block.title}</h3>
+					<p>${block.description_html}</p>
+					<p><a href="${ block.source.url }">↗</a></p>
+				</div>
 			</li>
 			`
 		linkBlocks.insertAdjacentHTML('beforeend', RichItem)
@@ -218,8 +226,8 @@ fetch(`https://api.are.na/v2/channels/${channelSlug}?per=100`, { cache: 'no-stor
 
 		// display figcaption
 
-		let displayClass = 'display' // Variables again.
-		let displayBlocks = document.querySelectorAll('.image-blocks') // Get all of them.
+		// let displayClass = 'display' // Variables again.
+		// let displayBlocks = document.querySelectorAll('.image-blocks') // Get all of them.
 
 
 
@@ -263,7 +271,7 @@ fetch(`https://api.are.na/v2/channels/${channelSlug}?per=100`, { cache: 'no-stor
 		} else {
 			block.classList.remove(notblurlinkClass)
 		}}, {
-			rootMargin: '-33% 0% -33% 0%', // CSS-ish: top/right/bottom/left.
+			rootMargin: '0% -30% 0% -30%', // CSS-ish: top/right/bottom/left.
 		})
 
 		sectionObserver.observe(block) // Watch each one!

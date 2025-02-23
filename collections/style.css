@@ -475,24 +475,73 @@ section:has(#link-blocks){
 	scroll-snap-type: x mandatory;
 	width: 100vw;
 	padding-inline: var(--gutter-size);
+	background-color: var(--color--black);
 }
 
+.link-blocks{
+	position: relative;
+	height: 70vh;
+}
 
 .link-blocks img , .link-blocks .PDF{
 	object-fit: cover;
 	max-width: 80vw;
-	aspect-ratio: 3/4;
+	height: 70vh;
+	/* aspect-ratio: 3/4; */
 	overflow: hidden;
-	filter: grayscale(100%) opacity(50%);	
+	filter: grayscale(100%) opacity(20%);	
 }
 
-.link-blocks iframe, .rich{
+.link-blocks iframe{
 	width: 80vw;
+	height: 70vh;
 	aspect-ratio: 3/4;
+	filter: grayscale(100%) opacity(20%);	
 }
+
+.link-blocks.rich{
+	width: 80vw;
+	height: 70vh;
+	aspect-ratio: 3/4;
+	filter: grayscale(100%) opacity(100%);	
+}
+
+.linkoverlay{
+	position: absolute;
+	top:0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	color: var(--color--background);
+}
+
+.linkoverlay h3{
+	font-family: var(--heading-font);
+	font-size: calc(1.2*var(--base-size));
+	position: absolute;
+	width: 70%;
+	top:0;
+	left: 0;
+	margin: calc(0.3*var(--gutter-size));
+}
+
+.linkoverlay p:nth-of-type(2){
+	position: absolute;
+	bottom:0;
+	left: 0;
+	margin: calc(0.3*var(--gutter-size));
+}
+
+.linkoverlay p:has(a) {
+	position: absolute;
+	top:0;
+	right: 0;
+	margin: calc(0.3*var(--gutter-size));
+}
+
 
 /* change blur to opacity */
-
+/* 
 .rich ,
 .link-blocks.notblur iframe,
 .link-blocks.notblur img,
@@ -504,8 +553,8 @@ section:has(#link-blocks){
 .link-blocks iframe:hover, .rich:hover, 
 .link-blocks.notblur img:hover, 
 .link-blocks.notblur .PDF:hover{
-	filter: grayscale(0%);
-}
+	filter: grayscale(100%)  opacity(20%);
+} */
 
 /* desktop */
 /* desktop */
@@ -590,7 +639,7 @@ section:has(#link-blocks){
 	}
 
 	.video-blocks{
-		gap: calc(0.5*var(--gutter-size));
+		gap: calc(0.8*var(--gutter-size));
 	}
 	
 	#video-blocks video{
@@ -636,7 +685,7 @@ section:has(#link-blocks){
 	} */
 
 	#audio-blocks{
-		gap: 0px;
+		gap:0px;
 		align-items: center;
 		justify-content: center;
 		width: 100vw;
@@ -668,5 +717,20 @@ section:has(#link-blocks){
 	#link-blocks{
 		gap: calc(0.5*var(--gutter-size));
 	}
+
+	/* .rich ,
+	.link-blocks.notblur iframe,
+	.link-blocks.notblur img,
+	.link-blocks.notblur .PDF 
+	{
+		filter: grayscale(100%) opacity(100%);
+	}
+
+	.link-blocks iframe:hover, .rich:hover, 
+	.link-blocks.notblur img:hover, 
+	.link-blocks.notblur .PDF:hover{
+		filter: grayscale(100%) opacity(20%);
+	} */
+
 
 }
