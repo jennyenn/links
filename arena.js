@@ -35,10 +35,21 @@ let placeChannelInfo = (data) => {
 window.addEventListener('scroll',() => {
 	const scrollX = window.pageXOffset;
 	const soccer = document.querySelector('#soccer img')
+	const scrollY = scrollX/3;
+	const soccerTop = soccer.offsetTop;
+	const soccerHeight = soccer.offsetHeight;  
+	// height of the soccer: https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/offsetHeight
+	const windowHeight = window.innerHeight; 
+	// height of the screen: https://developer.mozilla.org/en-US/docs/Web/API/Window/innerHeight
 
-	console.log('x:', scrollX);
-
-	soccer.style.transform = `translateX(${scrollX}px) translateY(${scrollX}px)`;
+	const soccerbottom = soccerTop+scrollY+soccerHeight;
+	const rebound =soccerbottom - windowHeight ;
+	
+	if(soccerbottom >= windowHeight){
+		soccer.style.transform = `translateX(${scrollX}px) translateY(-${rebound}px)`;
+	}else{
+		soccer.style.transform = `translateX(${scrollX}px) translateY(${scrollY}px)`;
+	}
 })
 
 
