@@ -225,7 +225,7 @@ figcaption{
 	width: 100%;
 	position: absolute;
 	gap: calc(2*var(--gutter-size));
-	top: calc(15*var(--gutter-size));
+	top: calc(10*var(--gutter-size));
 	left:var(--gutter-size);
 	display: flex;
 	flex-direction: row;

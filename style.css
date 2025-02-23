@@ -112,11 +112,11 @@ p{
 
 #soccer img{
 	position: absolute;
-	right: calc(4.5*var(--gutter-size));
-	top: calc(5.2*var(--gutter-size));
+	right: calc(0.2*var(--gutter-size));
+	top: calc(4*var(--gutter-size));
 	filter: opacity(0.8);
+	scale: 1;
 	z-index:-1;
-	/* transition: transform 0.1s ease-out;  */
 }
 
 
@@ -134,8 +134,8 @@ section:nth-of-type(2) img{
 
 section:nth-of-type(2) p{
 	position: absolute;
-	top:  var(--gutter-size) ;
-	right: var(--gutter-size);
+	bottom:  calc(2*var(--gutter-size) );
+	left: var(--gutter-size);
 }
 
 a{
@@ -154,6 +154,31 @@ section:nth-of-type(2) img:hover{
 	/* how to set image as cursor upon hover: https://dev.to/enjeck/set-image-as-cursor-upon-hover-3nbh */
 	/* cursor: url(images/cursor.png), auto; */
 }
+
+.desktoppic{
+	display: none;
+}
+
+.mobilebutton{
+	display: block;
+	width: 30vw;
+	height: 30vh;
+	position: absolute;
+	top: calc(7.5*var(--gutter-size));
+	left: calc(1*var(--gutter-size));
+}
+
+.mobilepic{
+	display: block;
+	width: 100vw;
+	height: 100vh;
+	position: absolute;
+	bottom:  calc(-4*var(--gutter-size));
+	right: calc(-1*var(--gutter-size));
+	scale: 0.7;
+	filter: opacity(80%);
+}
+
 
 /* desktop */
 /* desktop */
@@ -207,11 +232,11 @@ section:nth-of-type(2) img:hover{
 		transform: none;
 	}
 
-	section:nth-of-type(1) img{
+	#soccer img{
 		position: absolute;
 		left: calc(7*var(--gutter-size));
-		bottom: calc(5.2*var(--gutter-size));
-		filter: opacity(1);
+		top: calc(5.2*var(--gutter-size));
+		filter: opacity(0.8);
 		scale: 1.2;
 		z-index:-1;
 	}
@@ -226,6 +251,21 @@ section:nth-of-type(2) img:hover{
 		right: var(--gutter-size);
 		top: var(--gutter-size);
 		scale: 0.7;
+	}
+
+	section:nth-of-type(2) p{
+		position: absolute;
+		top:  var(--gutter-size) ;
+		right: var(--gutter-size);
+	}
+
+
+	.desktoppic{
+		display: block;
+	}
+
+	.mobilebutton, .mobilepic{
+		display: none;
 	}
 }
 
