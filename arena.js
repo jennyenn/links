@@ -25,6 +25,23 @@ let placeChannelInfo = (data) => {
 	channelLink.href = `https://www.are.na/channel/${channelSlug}`
 }
 
+// I want to make #soccer moves when I scroll right
+// I found this tutorial: https://medium.com/starbugs/%E7%94%A8%E7%B0%A1%E5%96%AE%E7%9A%84-css-%E5%92%8C-javascript-%E8%BC%95%E9%AC%86%E8%A3%BD%E9%80%A0%E8%A6%96%E5%B7%AE%E6%BB%BE%E5%8B%95-parallax-scrolling-4e22af7c1c0
+// https://codepen.io/ms314006/pen/RwpOWxP
+// what I learn: 
+// 1. window.pageXOffset returns the pixels a document has scrolled
+// 2. soccer.style.transform: target the soccer element and style it.
+
+window.addEventListener('scroll',() => {
+	const scrollX = window.pageXOffset;
+	const soccer = document.querySelector('#soccer img')
+
+	console.log('x:', scrollX);
+
+	soccer.style.transform = `translateX(${scrollX}px) translateY(${scrollX}px)`;
+})
+
+
 // Then our big function for specific-block-type rendering:
 // let renderBlock = (block) => {
 	
