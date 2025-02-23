@@ -50,6 +50,11 @@ body{
 	top: var(--gutter-size);
 }
 
+section:nth-last-of-type(2) #navbutton,
+section:nth-last-of-type(5) #navbutton{
+	color: var(--color--background);
+}
+
 #menu{
 	position: fixed;
 	top: 0px;
@@ -472,10 +477,9 @@ section:has(#link-blocks){
 	flex-wrap: nowrap;
 	overflow-x: auto;
 	gap: calc(1*var(--gutter-size));
-	scroll-snap-type: x mandatory;
-	width: 100vw;
 	padding-inline: var(--gutter-size);
 	background-color: var(--color--black);
+	width: 400%;
 }
 
 .link-blocks{
@@ -774,6 +778,20 @@ section:has(#link-blocks){
 		margin-top: var(--gutter-size);
 		height: 60vh;
 		overflow-y: hidden;
+		animation: scroll2 30s linear infinite ;
+	}
+
+	#link-blocks:hover{
+		animation-play-state: paused;
+	}
+
+	@keyframes scroll2 {
+		from {
+		transform: translateX(10%);
+		}
+		to {
+		transform: translateX(-100%);
+		}
 	}
 
 	.linkoverlay h3,
@@ -784,6 +802,7 @@ section:has(#link-blocks){
 	.linkoverlay2 p:nth-of-type(1) {
 		margin: calc(0.7*var(--gutter-size));
 	}
+
 
 	/* .rich ,
 	.link-blocks.notblur iframe,
