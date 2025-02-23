@@ -51,11 +51,13 @@ let renderBlock = (block) => {
 					<source media="(max-width: 428px)" srcset="${ block.image.thumb.url }">
 					<source media="(max-width: 640px)" srcset="${ block.image.large.url }">
 				</picture>
-				<div class="linkoverlay">
-					<h3>${block.title}</h3>
-					<p>${block.description_html}</p>
-					<p><a href="${ block.source.url }">↗</a></p>
-				</div>
+				<a href="${ block.source.url }">
+					<div class="linkoverlay">
+						<h3>${block.title}</h3>
+						<p class="description"${block.description_html}</p>
+						<p class="arrow" >↗</p>
+					</div>
+				</a>
 			</li>
 			`
 
@@ -123,11 +125,13 @@ let renderBlock = (block) => {
 				`
 				<li class="link-blocks">
 					<embed src="${ block.attachment.url }" class="PDF"> 
-					<div class="linkoverlay2">
-						<h3>${block.title}</h3>
-						<p>${block.description_html}</p>
-						<p><a href="${ block.source.url }">↗</a></p>
-					</div>
+					<a href="${ block.source.url }">
+						<div class="linkoverlay">
+							<h3>${block.title}</h3>
+							<p class="description">${block.description_html}</p>
+							<p class="arrow" >↗</p>
+						</div>
+					</a>
 				</li>
 					
 				`
@@ -185,11 +189,13 @@ let renderBlock = (block) => {
 			`
 			<li  class="link-blocks rich">
 					${ block.embed.html }
-				<div class="linkoverlay2">
-					<h3>${block.title}</h3>
-					<p>${block.description_html}</p>
-					<p><a href="${ block.source.url }">↗</a></p>
-				</div>
+					<a href="${ block.source.url }">
+						<div class="linkoverlay">
+							<h3>${block.title}</h3>
+							<p class="description">${block.description_html}</p>
+							<p class="arrow" >↗</p>
+						</div>
+					</a>
 			</li>
 			`
 		linkBlocks.insertAdjacentHTML('beforeend', RichItem)
