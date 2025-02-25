@@ -162,7 +162,6 @@ p{
 
 /* image *//* image *//* image */
 
-
 section:has(#image-blocks){
 	margin: 0px;
 	height: 98vh;
@@ -179,6 +178,15 @@ section:has(#image-blocks){
 	padding-left: 0px;
 	animation: scroll 40s linear infinite;
 	overflow-x: visible;
+}
+
+@keyframes scroll {
+	from {
+	  transform: translateX(0%);
+	}
+	to {
+	  transform: translateX(-500%);
+	}
 }
 
 #image-blocks:hover{
@@ -204,24 +212,15 @@ section:has(#image-blocks){
 
 .image-blocks:hover img{
 	filter: grayscale(0%);
-	cursor: pointer;
+	/* cursor: pointer; */
 }
 
 .image-blocks img:nth-child(1){
 	margin-left: var(--gutter-size);
 }
 
-@keyframes scroll {
-	from {
-	  transform: translateX(0%);
-	}
-	to {
-	  transform: translateX(-500%);
-	}
-}
-
 figcaption{
-	display:block;
+	display: block;
 	width: 100%;
 	position: absolute;
 	gap: calc(2*var(--gutter-size));
@@ -233,11 +232,8 @@ figcaption{
 	z-index: 2;
 }
 
-figcaption p{
-	max-width:70%;
-}
-
 figcaption p:nth-child(1){
+	width:80%;
 	font-size: calc(1.5*var(--base-size));
 	font-family: var(--heading-font);
 	color: var(--color--darkgreen);
@@ -247,15 +243,10 @@ figcaption p:nth-child(1){
 figcaption p:nth-child(2){
 	display: none;
 	flex-wrap: wrap;
-	max-width:100%;
+	max-width: 100%;
 	font-size: calc(1*var(--base-size));
 	color: var(--color--black);
 }
-
-.image-blocks figcaption{
-	display: block;
-}
-
 
 /* video *//* video *//* video */
 
@@ -609,7 +600,7 @@ section:has(#link-blocks){
 	}
 
 	.image-blocks{
-		width:  var(--block-size);
+		width: var(--block-size);
 		height:  50vh;
 	}
 
@@ -620,12 +611,17 @@ section:has(#link-blocks){
 	}
 
 	figcaption p:nth-child(1){
+		width:100%;
 		font-size: calc(1.5*var(--base-size));
 	}
 	
 	figcaption p:nth-child(2){
-		display: block;
+		width:100%;
+		display: flex;
 		font-size: calc(1*var(--base-size));
+		word-break: break-all; 
+		/* https://developer.mozilla.org/en-US/docs/Web/CSS/word-break */
+		/* whether line breaks appear wherever the text would otherwise overflow its content box. */
 	}
 
 	.image-blocks figcaption{

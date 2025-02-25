@@ -41,8 +41,6 @@ let renderBlock = (block) => {
 	// Links!
 	if (block.class == 'Link') {
 
-		console.log(block.title)
-
 		let linkItem =
 			`
 			<li class="link-blocks">
@@ -66,12 +64,12 @@ let renderBlock = (block) => {
 
 	// Images!
 	else if (block.class == 'Image') {
-
+		console.log(block.title);
 		let imageItem = 
 		`
 		<figure class="image-blocks">
 			<img src="${block.image.original.url}">
-			<figcaption class="words" >
+			<figcaption>
 				<p>${block.title}</p>
 				<p>${block.description}</p>
 			</figcaption>
