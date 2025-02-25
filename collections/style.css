@@ -50,11 +50,6 @@ body{
 	top: var(--gutter-size);
 }
 
-section:nth-last-of-type(2) #navbutton,
-section:nth-last-of-type(5) #navbutton{
-	color: var(--color--background);
-}
-
 #menu{
 	position: fixed;
 	top: 0px;
@@ -220,10 +215,9 @@ section:has(#image-blocks){
 }
 
 figcaption{
-	display: block;
 	width: 100%;
 	position: absolute;
-	gap: calc(2*var(--gutter-size));
+	gap: calc(0.3*var(--gutter-size));
 	top: calc(10*var(--gutter-size));
 	left:var(--gutter-size);
 	display: flex;
@@ -574,7 +568,6 @@ section:has(#link-blocks){
 		scroll-snap-align: start;
 	}
 
-
 	h2{
 		font-size: calc(3*var(--base-size));
 	}
@@ -582,6 +575,10 @@ section:has(#link-blocks){
 	nav ul{
 		display: flex;
 		flex-direction: row;
+	}
+
+	#navbutton{
+		top: calc(0.8*var(--gutter-size));
 	}
 		
 	/* how to set image as cursor upon hover: https://dev.to/enjeck/set-image-as-cursor-upon-hover-3nbh */
@@ -629,7 +626,7 @@ section:has(#link-blocks){
 	}
 	
 	.image-blocks:hover figcaption{
-		display: block;
+		display: flex;
 	}	
 
 	.image-blocks.display img{
