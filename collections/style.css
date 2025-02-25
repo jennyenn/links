@@ -732,6 +732,9 @@ section:has(#link-blocks){
 		display: none;
 	}
 
+	#audio-blocks li p:nth-of-type(2){
+		font-size: calc(1*var(--base-size));
+	} 
 	/* links *//* links *//* links */
 	
 

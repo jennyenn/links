@@ -147,7 +147,7 @@ let renderBlock = (block) => {
 					<p> ${ count } </p>
 					<img src="../assets/soccer1.png">
 					<audio controls src="${ block.attachment.url }" ></audio>
-					<p> ${ block.title }</p>
+					<p> < ${ block.title } > </p>
 				</li>
 				`
 			count++;
