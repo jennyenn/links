@@ -133,8 +133,6 @@ let renderBlock = (block) => {
 
 			// PDF display: https://stackoverflow.com/questions/17784037/how-to-display-pdf-file-in-html
 		
-
-			// …up to you!
 		}
 
 		// Uploaded audio!
@@ -233,23 +231,23 @@ fetch(`https://api.are.na/v2/channels/${channelSlug}?per=100`, { cache: 'no-stor
 
 
 
-		// video blur IntersectionObserver
+		// video opacity IntersectionObserver
 		// actually it will change the opacity, but i haven't edit the class name lol
 
-		let notblurvideoClass = 'notblur' // Variables again.
-		let notblurvideoBlocks = document.querySelectorAll('.video-blocks') // Get all of them.
+		let opacityvideoClass = 'opacity' // Variables again.
+		let opacityvideoBlocks = document.querySelectorAll('.video-blocks') // Get all of them.
 
 		// Loop through the list, doing this `forEach` one.
-		notblurvideoBlocks.forEach((block) => {
+		opacityvideoBlocks.forEach((block) => {
 		let sectionObserver = new IntersectionObserver((entries) => {
 		let [entry] = entries
 
 		if (entry.isIntersecting) {
-			block.classList.add(notblurvideoClass)
+			block.classList.add(opacityvideoClass)
 		} else {
-			block.classList.remove(notblurvideoClass)
+			block.classList.remove(opacityvideoClass)
 		}}, {
-			rootMargin: '0% 10% 0% 10% ', // CSS-ish: top/right/bottom/left.
+			rootMargin: '0% -30% 0% -30% ', // CSS-ish: top/right/bottom/left.
 		})
 
 		sectionObserver.observe(block) // Watch each one!
@@ -259,18 +257,18 @@ fetch(`https://api.are.na/v2/channels/${channelSlug}?per=100`, { cache: 'no-stor
 		// links blur IntersectionObserver
 		// actually it will change the opacity, but i haven't edit the class name lol
 
-		let notblurlinkClass = 'notblur' // Variables again.
-		let notblurlinkBlocks = document.querySelectorAll('.link-blocks') // Get all of them.
+		let showcolorImageClass = 'showcolor' // Variables again.
+		let showcolorImageBlocks = document.querySelectorAll('.image-blocks') // Get all of them.
 
 		// Loop through the list, doing this `forEach` one.
-		notblurlinkBlocks.forEach((block) => {
+		showcolorImageBlocks.forEach((block) => {
 		let sectionObserver = new IntersectionObserver((entries) => {
 		let [entry] = entries
 
 		if (entry.isIntersecting) {
-			block.classList.add(notblurlinkClass)
+			block.classList.add(showcolorImageClass)
 		} else {
-			block.classList.remove(notblurlinkClass)
+			block.classList.remove(showcolorImageClass)
 		}}, {
 			rootMargin: '0% -30% 0% -30%', // CSS-ish: top/right/bottom/left.
 		})

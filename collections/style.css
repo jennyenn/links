@@ -205,7 +205,7 @@ section:has(#image-blocks){
 	/* https://developer.mozilla.org/en-US/docs/Web/CSS/filter-function/grayscale */
 }
 
-.image-blocks:hover img{
+.image-blocks.showcolor img{
 	filter: grayscale(0%);
 	/* cursor: pointer; */
 }
@@ -284,7 +284,7 @@ section:has(#video-blocks){
 .video-blocks video{
 	width: 100vw;
 	aspect-ratio: 4/5;
-	filter: grayscale(100%) opacity(80%);
+	filter: grayscale(100%) opacity(30%);
 	object-fit: cover;
 	overflow: hidden;
 }
@@ -295,18 +295,16 @@ section:has(#video-blocks){
 	filter: grayscale(100%) opacity(30%);
 }
 
-.video-blocks.notblur iframe,
-.video-blocks.notblur video{
+.video-blocks.opacity iframe,
+.video-blocks.opacity video{
 	filter: grayscale(100%) opacity(100%);
 }
 
-.video-blocks:hover video{
-	filter: grayscale(0%);
-}
-
+.video-blocks:hover video,
 .video-blocks:hover iframe{
 	filter: grayscale(0%);
 }
+
 
 aside{
 	font-family: var(--context-font);
@@ -549,23 +547,6 @@ section:has(#link-blocks){
 }
 
 
-
-/* change blur to opacity */
-/* 
-.rich ,
-.link-blocks.notblur iframe,
-.link-blocks.notblur img,
-.link-blocks.notblur .PDF 
-{
-	filter: grayscale(100%) opacity(100%);
-}
-
-.link-blocks iframe:hover, .rich:hover, 
-.link-blocks.notblur img:hover, 
-.link-blocks.notblur .PDF:hover{
-	filter: grayscale(100%)  opacity(20%);
-} */
-
 /* desktop */
 /* desktop */
 /* desktop */
@@ -634,6 +615,10 @@ section:has(#link-blocks){
 	.image-blocks figcaption{
 		display: none;
 	}
+
+	.image-blocks:hover img{
+		filter: grayscale(0%);
+	}
 	
 	.image-blocks:hover figcaption{
 		display: flex;
@@ -695,12 +680,6 @@ section:has(#link-blocks){
 	}
 
 	/* audio *//* audio *//* audio */
-/* 
-	audio{
-		width: 60vw;
-		height: 5vh;
-		margin-bottom: 0px;
-	} */
 
 	#audio-blocks{
 		gap:0px;
@@ -734,8 +713,9 @@ section:has(#link-blocks){
 	#audio-blocks li p:nth-of-type(2){
 		font-size: calc(1*var(--base-size));
 	} 
+
+
 	/* links *//* links *//* links */
-	
 
 	.link-blocks iframe, .rich,.link-blocks picture img , .link-blocks .PDF{
 		width: calc(1.2*var(--block-size));
@@ -772,21 +752,5 @@ section:has(#link-blocks){
 	.linkoverlay .arrow {
 		margin: calc(0.7*var(--gutter-size));
 	}
-
-
-	/* .rich ,
-	.link-blocks.notblur iframe,
-	.link-blocks.notblur img,
-	.link-blocks.notblur .PDF 
-	{
-		filter: grayscale(100%) opacity(100%);
-	}
-
-	.link-blocks iframe:hover, .rich:hover, 
-	.link-blocks.notblur img:hover, 
-	.link-blocks.notblur .PDF:hover{
-		filter: grayscale(100%) opacity(20%);
-	} */
-
 
 }
