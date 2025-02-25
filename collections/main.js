@@ -27,7 +27,7 @@ let channelSlug = 'women-in-soccer' // The “slug” is just the end of the URL
 
 // Then our big function for specific-block-type rendering:
 
-
+let count =1 ;
 let renderBlock = (block) => {
 	
 	// To start, a shared `ul` where we’ll insert all our blocks
@@ -49,13 +49,11 @@ let renderBlock = (block) => {
 					<source media="(max-width: 428px)" srcset="${ block.image.thumb.url }">
 					<source media="(max-width: 640px)" srcset="${ block.image.large.url }">
 				</picture>
-				<a href="${ block.source.url }">
 					<div class="linkoverlay">
 						<h3>${block.title}</h3>
 						<p class="description"${block.description_html}</p>
-						<p class="arrow" >↗</p>
+						<p class="arrow" ><a href="${ block.source.url }">↗</a></p>
 					</div>
-				</a>
 			</li>
 			`
 
@@ -123,13 +121,11 @@ let renderBlock = (block) => {
 				`
 				<li class="link-blocks">
 					<embed src="${ block.attachment.url }" class="PDF"> 
-					<a href="${ block.source.url }">
-						<div class="linkoverlay">
-							<h3>${block.title}</h3>
-							<p class="description">${block.description_html}</p>
-							<p class="arrow" >↗</p>
-						</div>
-					</a>
+					<div class="linkoverlay">
+						<h3>${block.title}</h3>
+						<p class="description">${block.description_html}</p>
+						<p class="arrow" ><a href="${ block.source.url }">↗</a></p>
+					</div>
 				</li>
 					
 				`
@@ -143,17 +139,20 @@ let renderBlock = (block) => {
 
 		// Uploaded audio!
 		else if (attachment.includes('audio')) {
-
 			// …still up to you, but here’s an `audio` element:
+			
 			let audioItem =
-
 				`
 				<li class="soccerbuttom">
-					<p> ${ block.title }</p>
+					<p> ${ count } </p>
 					<img src="../assets/soccer1.png">
 					<audio controls src="${ block.attachment.url }" ></audio>
+					<p> ${ block.title }</p>
 				</li>
 				`
+			count++;
+			// I learned this from my elective class "computational form"
+			
 			audioBlocks.insertAdjacentHTML('beforeend', audioItem)
 			// More on audio: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/audio
 		}
@@ -187,13 +186,11 @@ let renderBlock = (block) => {
 			`
 			<li  class="link-blocks rich">
 					${ block.embed.html }
-					<a href="${ block.source.url }">
 						<div class="linkoverlay">
 							<h3>${block.title}</h3>
 							<p class="description">${block.description_html}</p>
-							<p class="arrow" >↗</p>
+							<p class="arrow" ><a href="${ block.source.url }">↗</a></p>
 						</div>
-					</a>
 			</li>
 			`
 		linkBlocks.insertAdjacentHTML('beforeend', RichItem)

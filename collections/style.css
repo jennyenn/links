@@ -98,6 +98,7 @@ section{
 	width: 100vw;
 	overflow-x: hidden;
 	overflow-y: hidden;
+	scroll-snap-align: center;
 }
 
 h2{
@@ -272,6 +273,7 @@ section:has(#video-blocks){
 	flex-direction: column;
 	align-items: center;
 	gap: calc(2*var(--gutter-size));
+	scroll-snap-align: center;
 }
 
 #video-blocks p{
@@ -332,12 +334,14 @@ section:has(#text-blocks){
 	flex-direction: row;
 	overflow-x: auto;
 	gap: calc(2*var(--gutter-size));
+	scroll-snap-type:x mandatory
 }
 
 blockquote{
 	display: flex;
 	align-items: center;
 	padding: calc(1*var(--gutter-size));
+	scroll-snap-align: center;
 }
 
 blockquote p{
@@ -415,6 +419,11 @@ section:has(#audio-blocks){
 	color: var(--color--background);
 }
 
+#audio-blocks p:nth-of-type(2){
+	font-family: var(--heading-font);
+	text-transform: uppercase;
+}
+
 #audio-blocks img{
 	width: 80vw;
 	object-fit: contain;
@@ -484,6 +493,7 @@ section:has(#link-blocks){
 	height: 70vh;
 	aspect-ratio: 3/4;
 	filter: grayscale(100%) opacity(100%);	
+	max-width: 80vw;
 }
 
 /* normal link img*/
@@ -538,6 +548,8 @@ section:has(#link-blocks){
 .link-blocks:hover .linkoverlay{
 	display: block;
 }
+
+
 
 /* change blur to opacity */
 /* 
@@ -696,12 +708,13 @@ section:has(#link-blocks){
 		align-items: center;
 		justify-content: center;
 		width: 100vw;
+		overflow-x: hidden;
 	}
 
 	#audio-blocks li{
 		display: flex;
 		flex-direction: column;
-		gap: calc(0.2*var(--gutter-size));
+		gap: calc(0.3*var(--gutter-size));
 		align-items: center;
 		width: 14vw;
 	}
@@ -713,6 +726,10 @@ section:has(#link-blocks){
 
 	#audio-blocks img:hover{
 		filter: opacity(100%);
+	}
+
+	section:has(#audio-blocks) aside:nth-last-of-type(1){
+		display: none;
 	}
 
 	/* links *//* links *//* links */
