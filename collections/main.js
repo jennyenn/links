@@ -222,17 +222,9 @@ fetch(`https://api.are.na/v2/channels/${channelSlug}?per=100`, { cache: 'no-stor
 			// console.log(block) // The data for a single block
 			renderBlock(block) // Pass the single block data to the render function
 		})
-
-		// display figcaption
-
-		// let displayClass = 'display' // Variables again.
-		// let displayBlocks = document.querySelectorAll('.image-blocks') // Get all of them.
-
-
-
+		
 
 		// video opacity IntersectionObserver
-		// actually it will change the opacity, but i haven't edit the class name lol
 
 		let opacityvideoClass = 'opacity' // Variables again.
 		let opacityvideoBlocks = document.querySelectorAll('.video-blocks') // Get all of them.
@@ -254,29 +246,29 @@ fetch(`https://api.are.na/v2/channels/${channelSlug}?per=100`, { cache: 'no-stor
 		})
 
 
-		// links blur IntersectionObserver
-		// actually it will change the opacity, but i haven't edit the class name lol
+		// Image showcolor IntersectionObserver
+		// I ended up not using it since I wanted it to happen only in mobile size, but I don't know how to do it right now.
+		
+		// let showcolorImageClass = 'showcolor' // Variables again.
+		// let showcolorImageBlocks = document.querySelectorAll('.image-blocks') // Get all of them.
 
-		let showcolorImageClass = 'showcolor' // Variables again.
-		let showcolorImageBlocks = document.querySelectorAll('.image-blocks') // Get all of them.
+		// // Loop through the list, doing this `forEach` one.
+		// showcolorImageBlocks.forEach((block) => {
+		// 	let sectionObserver = new IntersectionObserver((entries) => {
+		// 	let [entry] = entries
 
-		// Loop through the list, doing this `forEach` one.
-		showcolorImageBlocks.forEach((block) => {
-		let sectionObserver = new IntersectionObserver((entries) => {
-		let [entry] = entries
+		// 	if (entry.isIntersecting) {
+		// 		block.classList.add(showcolorImageClass)
+		// 	} else {
+		// 		block.classList.remove(showcolorImageClass)
+		// 	}}, {
+		// 		rootMargin: '0% -30% 0% -30%', // CSS-ish: top/right/bottom/left.
+		// 	})
 
-		if (entry.isIntersecting) {
-			block.classList.add(showcolorImageClass)
-		} else {
-			block.classList.remove(showcolorImageClass)
-		}}, {
-			rootMargin: '0% -30% 0% -30%', // CSS-ish: top/right/bottom/left.
-		})
-
-		sectionObserver.observe(block) // Watch each one!
-		})
-
-
+		// 	sectionObserver.observe(block) // Watch each one!
+		// 	})
+		
+		
 		// slide in effect on text-block
 
 		let slideinClass = 'slidein' // Variables again.
@@ -331,9 +323,9 @@ fetch(`https://api.are.na/v2/channels/${channelSlug}?per=100`, { cache: 'no-stor
 			}
 		}
 
-
 		// Also display the owner and collaborators:
 		let channelUsers = document.querySelector('#channel-users') // Show them together
 		data.collaborators.forEach((collaborator) => renderUser(collaborator, channelUsers))
 		renderUser(data.user, channelUsers)
 	})
+	

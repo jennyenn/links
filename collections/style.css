@@ -205,7 +205,7 @@ section:has(#image-blocks){
 	/* https://developer.mozilla.org/en-US/docs/Web/CSS/filter-function/grayscale */
 }
 
-.image-blocks.showcolor img{
+.image-blocks.hover img{
 	filter: grayscale(0%);
 	/* cursor: pointer; */
 }
@@ -581,7 +581,6 @@ section:has(#link-blocks){
 	/* blocks  *//* blocks  *//* blocks  */
 
 	/* image  *//* image  *//* image  */
-
 
 	#image-blocks{
 		margin-top: calc(2*var(--gutter-size));
