@@ -337,7 +337,7 @@ section:has(#text-blocks){
 blockquote{
 	display: flex;
 	align-items: center;
-	padding: calc(2*var(--gutter-size));
+	padding: calc(1*var(--gutter-size));
 }
 
 blockquote p{
@@ -384,7 +384,6 @@ section:nth-of-type(3) aside{
 
 /* audio *//* audio *//* audio */
 
-
 section:has(#audio-blocks){
 	width: 100vw;
 	height: 100vh;
@@ -399,7 +398,6 @@ section:has(#audio-blocks){
 	flex-direction: row;
 	overflow-x: auto;
 	scroll-snap-type: x mandatory; 
-	gap: calc(1*var(--gutter-size));	
 }
 
 #audio-blocks li{
@@ -408,6 +406,7 @@ section:has(#audio-blocks){
 	align-items: center;
 	justify-content: center;
 	gap: calc(1*var(--gutter-size));	
+	scroll-snap-align: center;
 }
 
 #audio-blocks p{
