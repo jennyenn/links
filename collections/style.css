@@ -110,6 +110,10 @@ h2{
 	color: white;
 }
 
+h3{
+	font-family: var(--heading-font);
+}
+
 p{
 	font-family: var(--context-font);
 	font-size: var(--base-size);
@@ -125,6 +129,37 @@ aside{
 	position: relative;
 	text-align: center;
 }
+
+footer{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	padding: var(--gutter-size);
+	
+	height: auto;
+}
+
+footer p:nth-child(1){
+	font-weight: 400;
+	color: var(--color--darkgreen);
+	width: 80%;
+}
+
+
+footer section{
+	width: 100%;
+	height: 10vh;
+	display: flex;
+	align-items: center;
+	justify-content: right;
+	gap:calc(0.2*var(--gutter-size)) ;
+}
+
+footer section h3{
+	color: var(--color--darkgreen);
+}
+
 
 /* blocks *//* blocks *//* blocks */
 /* blocks *//* blocks *//* blocks */
@@ -478,7 +513,6 @@ section:has(#link-blocks){
 }
 
 .linkoverlay h3{
-	font-family: var(--heading-font);
 	font-size: calc(1.2*var(--base-size));
 	position: absolute;
 	width: 70%;
@@ -540,6 +574,22 @@ section:has(#link-blocks){
 
 	#navbutton{
 		top: calc(0.8*var(--gutter-size));
+	}
+
+	footer p:nth-child(1){
+		width: 100%;
+	}	
+
+	footer{
+		height: 5vh;
+		flex-direction: row;
+		justify-items: space-between;
+		gap: var(--gutter-size);
+	}
+
+	footer section{
+		justify-content: right;
+		gap:var(--gutter-size) ;
 	}
 
 	/* blocks  *//* blocks  *//* blocks  */

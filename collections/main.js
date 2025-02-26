@@ -176,23 +176,22 @@ let renderBlock = (block) => {
 			</li>
 			`
 		linkBlocks.insertAdjacentHTML('beforeend', RichItem)
-		// …up to you!
 	}
 
 	}
 }
 
 // It‘s always good to credit your work:
-// let renderUser = (user, container) => { // You can have multiple arguments for a function!
-// 	let userAddress =
-// 		`
-// 		<address>
-// 			<h3>${ user.first_name }</h3>
-// 			<p><a href="https://are.na/${ user.slug }">Are.na profile ↗</a></p>
-// 		</address>
-// 		`
-// 	container.insertAdjacentHTML('beforeend', userAddress)
-// }
+let renderUser = (user, container) => { // You can have multiple arguments for a function!
+	let userAddress =
+		`
+		<address>
+			<h3>${ user.first_name }</h3>
+			<p><a href="https://are.na/${ user.slug }">Are.na profile ↗</a></p>
+		</address>
+		`
+	container.insertAdjacentHTML('beforeend', userAddress)
+}
 
 // Now that we have said what we can do, go get the data:
 fetch(`https://api.are.na/v2/channels/${channelSlug}?per=100`, { cache: 'no-store' })
