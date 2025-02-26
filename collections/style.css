@@ -143,7 +143,8 @@ footer{
 	flex-direction: row;
 	align-items: center;
 	justify-content: center;
-	padding: var(--gutter-size);
+	padding-inline: calc(1*var(--gutter-size));
+	padding-block: calc(0.8*var(--gutter-size));
 	height: auto;
 }
 
@@ -578,7 +579,7 @@ section:nth-of-type(5) aside:nth-of-type(2){
 	}
 
 	footer{
-		height: 10vh;
+		height: 5vh;
 		flex-direction: row;
 		justify-items: space-between;
 		gap: var(--gutter-size);
@@ -586,7 +587,7 @@ section:nth-of-type(5) aside:nth-of-type(2){
 
 	footer section{
 		width: 100%;
-		height: 10vh;
+		height: 5vh;
 		display: flex;
 		align-items: center;
 		justify-content: right;
