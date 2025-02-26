@@ -267,7 +267,7 @@ fetch(`https://api.are.na/v2/channels/${channelSlug}?per=100`, { cache: 'no-stor
 		} else {
 			block.classList.remove(slideinClass)
 		}}, {
-			rootMargin: '-33%  0%  -33% 0% ', // CSS-ish: top/right/bottom/left.
+			rootMargin: '-0%  0%  -0% 0% ', // CSS-ish: top/right/bottom/left.
 		})
 
 		sectionObserver.observe(block) // Watch each one!
