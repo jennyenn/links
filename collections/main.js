@@ -9,22 +9,6 @@ document.head.appendChild(markdownIt)
 let channelSlug = 'women-in-soccer' // The “slug” is just the end of the URL
 // change this to my channel name
 
-
-// so cool!! grab data from are.na
-// let placeChannelInfo = (data) => {
-// 	// Target some elements in your HTML:
-// 	let channelTitle = document.querySelector('#channel-title')
-// 	let channelDescription = document.querySelector('#channel-description')
-// 	let channelCount = document.querySelector('#channel-count')
-// 	let channelLink = document.querySelector('#channel-link')
-
-// 	// Then set their content/attributes to our data:
-// 	channelTitle.innerHTML = data.title
-// 	channelDescription.innerHTML = window.markdownit().render(data.metadata.description) // Converts Markdown → HTML
-// 	channelCount.innerHTML = data.length
-// 	channelLink.href = `https://www.are.na/channel/${channelSlug}`
-// }
-
 // Then our big function for specific-block-type rendering:
 
 let count =1 ;
@@ -44,11 +28,11 @@ let renderBlock = (block) => {
 		let linkItem =
 			`
 			<li class="link-blocks">
-				<picture>
-					<img src="${ block.image.original.url }">
-					<source media="(max-width: 428px)" srcset="${ block.image.thumb.url }">
-					<source media="(max-width: 640px)" srcset="${ block.image.large.url }">
-				</picture>
+					<picture>
+						<img src="${ block.image.original.url }">
+						<source media="(max-width: 428px)" srcset="${ block.image.thumb.url }">
+						<source media="(max-width: 640px)" srcset="${ block.image.large.url }">
+					</picture>
 					<div class="linkoverlay">
 						<h3>${block.title}</h3>
 						<p class="description"${block.description_html}</p>
@@ -66,10 +50,11 @@ let renderBlock = (block) => {
 		let imageItem = 
 		`
 		<figure class="image-blocks">
-			<img src="${block.image.original.url}">
+			<a href="https://www.are.na/block/${block.id }">
+				<img src="${block.image.original.url}">
+			
 			<figcaption>
 				<p>${block.title}</p>
-				<p>${block.description}</p>
 			</figcaption>
 		</figure>
 		
@@ -77,7 +62,6 @@ let renderBlock = (block) => {
 
 		imageBlocks.insertAdjacentHTML('beforeend', imageItem);;
 
-		// …up to you!
 	}
 
 	// Text!

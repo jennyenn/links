@@ -117,39 +117,14 @@ p{
 	font-weight: 200;
 }
 
-/* .marquee{
-	width: 100vw;
-	margin-top: 0px;
-	background-color: var(--color--lightgreen);
-	padding-block: calc(0.5*var(--base-size));
-	overflow: hidden;
-	white-space: nowrap;
+aside{
+	font-family: var(--context-font);
+	font-size: calc(0.8*var(--base-size));
+	color: var(--color--background);
+	opacity: 30%;
+	position: relative;
+	text-align: center;
 }
-
-.marquee p{
-	display: inline-block; 
-	animation: scroll 20s linear infinite;
-}  */
-
-/* @keyframes scroll {
-	from {
-	  transform: translateX(50%);
-	}
-	to {
-	  transform: translateX(-100%);
-	}
-  } */
-
-/* .dot{
-	color: var(--color--purple);
-} */
-/* 
-.marquee p{
-	color: black;
-	font-size: calc(0.9*var(--base-size));
-} */
-
-
 
 /* blocks *//* blocks *//* blocks */
 /* blocks *//* blocks *//* blocks */
@@ -221,7 +196,7 @@ figcaption{
 	top: calc(10*var(--gutter-size));
 	left:var(--gutter-size);
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
 	flex-wrap: wrap;
 	z-index: 2;
 }
@@ -234,13 +209,21 @@ figcaption p:nth-child(1){
 	font-weight: 500;
 }
 
-figcaption p:nth-child(2){
+
+/* I originally wanted to put description and use text-overflow since some of them are too long, but it couldn't work so I deleted it. lol*/
+/* figcaption p:nth-child(2){
 	display: none;
-	flex-wrap: wrap;
 	max-width: 100%;
 	font-size: calc(1*var(--base-size));
 	color: var(--color--black);
+    text-overflow: ellipsis;
+} */
+
+section:nth-of-type(1) aside{
+	color: var(--color--darkgreen);
+	transform: translateY(calc(8*var(--gutter-size)));
 }
+
 
 /* video *//* video *//* video */
 
@@ -304,17 +287,6 @@ section:has(#video-blocks){
 .video-blocks:hover iframe{
 	filter: grayscale(0%);
 }
-
-
-aside{
-	font-family: var(--context-font);
-	font-size: calc(0.8*var(--base-size));
-	color: var(--color--background);
-	opacity: 30%;
-	position: relative;
-	text-align: center;
-}
-
 
 /* text *//* text *//* text */
 
@@ -526,13 +498,11 @@ section:has(#link-blocks){
 	right: 0;
 }
 
-
 .linkoverlay h3,
 .linkoverlay .description,
 .linkoverlay .arrow {
 	margin: calc(1.2*var(--gutter-size));
 }
-
 
 /* hover image and display linkoverlay */
 .link-blocks:hover img ,
@@ -571,10 +541,6 @@ section:has(#link-blocks){
 	#navbutton{
 		top: calc(0.8*var(--gutter-size));
 	}
-		
-	/* how to set image as cursor upon hover: https://dev.to/enjeck/set-image-as-cursor-upon-hover-3nbh */
-	/* cursor: url(images/cursor.png), auto; */
-	
 
 	/* blocks  *//* blocks  *//* blocks  */
 	/* blocks  *//* blocks  *//* blocks  */
@@ -602,14 +568,14 @@ section:has(#link-blocks){
 		font-size: calc(1.5*var(--base-size));
 	}
 	
-	figcaption p:nth-child(2){
+	/* figcaption p:nth-child(2){
 		width:100%;
 		display: flex;
 		font-size: calc(1*var(--base-size));
-		word-break: break-all; 
-		/* https://developer.mozilla.org/en-US/docs/Web/CSS/word-break */
+		word-break: break-all;  */
+		/* https://developer.mozilla.org/en-US/docs/Web/CSS/word-break  */
 		/* whether line breaks appear wherever the text would otherwise overflow its content box. */
-	}
+	/* }  */
 
 	.image-blocks figcaption{
 		display: none;
@@ -625,6 +591,10 @@ section:has(#link-blocks){
 
 	.image-blocks.display img{
 		filter: grayscale(100%);
+	}
+
+	section:nth-of-type(1) aside{
+		transform: translateY(calc(3*var(--gutter-size)));
 	}
 
 	/* video  *//* video  *//* video  */

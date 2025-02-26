@@ -41,7 +41,6 @@
 }
 
 html{
-	/* https://www.w3schools.com/cssref/css_pr_scroll-snap-type.php */
 	scroll-behavior: smooth;
 	overflow-x: hidden;
 }
@@ -119,7 +118,6 @@ p{
 	z-index:-1;
 }
 
-
 section:nth-of-type(2){
 	position: relative;
 	width: 100vw;
@@ -150,7 +148,6 @@ a:hover{
 
 section:nth-of-type(2) img:hover{
 	cursor: url(assets/cursor.png), auto;
-
 	/* how to set image as cursor upon hover: https://dev.to/enjeck/set-image-as-cursor-upon-hover-3nbh */
 	/* cursor: url(images/cursor.png), auto; */
 }
