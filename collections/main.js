@@ -44,19 +44,40 @@ let renderBlock = (block) => {
 			linkBlocks.insertAdjacentHTML('beforeend', linkItem)
 	}
 
+
+
+	// 	<figure class="image-blocks">
+	// 	<button  class="imagebutton">
+	// 		<img src="${block.image.original.url}" class="image" >
+	// 	</button>
+	// 	<figcaption>
+	// 		<p>${block.title}</p>
+	// 	</figcaption>
+	// 	<dialog class="popup">
+	// 		<div>
+	// 			<p class="block-title-style">${block.title}</p>
+	// 			<p>${block.description_html}</p>
+	// 		</div>
+	// 		<img src="${block.image.original.url}"></img>
+	// 		<a href="${block.image.original.url}">See original Image</a>
+	// 		<button class="Close">x</button>
+	// 	</dialog>
+	// </figure>
+
 	// Images!
 	else if (block.class == 'Image') {
 		console.log(block.title);
 		let imageItem = 
 		`
-		<figure class="image-blocks">
-			<a href="https://www.are.na/block/${block.id }">
-				<img src="${block.image.original.url}">
-			
-			<figcaption>
-				<p>${block.title}</p>
-			</figcaption>
-		</figure>
+			<figure class="image-blocks">
+				<a href="https://www.are.na/block/${block.id }">
+					<img src="${block.image.original.url}">
+					
+					<figcaption>
+						<p>${block.title}</p>
+					</figcaption>
+				</figure>
+	
 		
 		`;
 
@@ -285,6 +306,30 @@ fetch(`https://api.are.na/v2/channels/${channelSlug}?per=100`, { cache: 'no-stor
 			button.onclick = () => { audio.play() }
 		})
 
+		// click image and open the modal imageItem
+
+		let imagebuttons = document.querySelectorAll('.imagebutton')
+
+		imagebuttons.forEach((button) => {
+			let image=button.querySelector('.image')
+			let popup=image.querySelector('.popup')
+			let CloseButton = popup.querySelector('.Close')
+
+			button.onclick = () => {
+				popup.showModal()
+			}
+			
+			CloseButton.onclick = () => {
+				popup.close()
+			}
+
+			popup.onclick = (event) => { // Listen on our `modal` also…
+				if (event.target == popup) { // Only if clicks are to itself (the background).
+					popup.close() // Close it then too.
+				}
+			}
+
+		})
 
 		// click button and open the menu
 

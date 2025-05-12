@@ -94,6 +94,10 @@ nav ul li p:hover{
 	cursor: pointer;
 }
 
+.popup{
+	background-color: #141414;
+}
+
 main{
 	max-width: 100vw;
 	display: flex;
@@ -179,7 +183,7 @@ section:has(#image-blocks){
 	overflow-x: auto;
 	margin-top: calc(3*var(--gutter-size));
 	padding-left: 0px;
-	animation: scroll 40s linear infinite;
+	animation: scroll 60s linear infinite;
 	overflow-x: visible;
 }
 
@@ -261,7 +265,7 @@ section:nth-of-type(1) aside{
 /* video *//* video *//* video */
 
 section:has(#video-blocks){
-	height: 100vh;
+	height: 98vh;
 	overflow-y: hidden;
 	background-color: #141414;
 	margin: 0px;
@@ -325,7 +329,7 @@ section:has(#video-blocks){
 
 section:has(#text-blocks){
 	width: 100vw;
-	height: 100vh;
+	height: 98vh;
 	display: flex;
 	flex-direction: column;
 }
@@ -392,7 +396,7 @@ section:nth-of-type(3) aside{
 
 section:has(#audio-blocks){
 	width: 100vw;
-	height: 100vh;
+	height: 98vh;
 	display: flex;
 	flex-direction: column;
 	background-color: var(--color--darkgreen);
@@ -454,7 +458,7 @@ section:nth-of-type(4) aside{
 
 section:has(#link-blocks){
 	width: 100vw;
-	height: 100vh;
+	height: 98vh;
 	overflow-y: hidden;
 	overflow-x: auto;
 	background-color: var(--color--black);
@@ -561,7 +565,7 @@ section:nth-of-type(5) aside:nth-of-type(2){
 	
 	section{
 		width: 100vw;
-		height: 100vh;
+		height: 98vh;
 		scroll-snap-align: start;
 	}
 
@@ -659,7 +663,7 @@ section:nth-of-type(5) aside:nth-of-type(2){
 	/* video  *//* video  *//* video  */
 
 	section:has(#video-blocks){
-		height: 120vh;
+		height: 98vh;
 	}
 
 	#video-blocks{
@@ -759,7 +763,7 @@ section:nth-of-type(5) aside:nth-of-type(2){
 		margin-top: var(--gutter-size);
 		height: 60vh;
 		overflow-y: hidden;
-		animation: scroll2 30s linear infinite ;
+		animation: scroll2 60s linear infinite ;
 	}
 
 	#link-blocks:hover{
